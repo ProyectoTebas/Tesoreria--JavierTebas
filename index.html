@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Javier Tebas Medrano — Tesorería Banco Sabadell 2026</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<style>
+:root{--bg:#f4f0f8;--paper:#faf8fc;--card:#fefcff;--ink:#2a2a38;--mut:#7a7890;--green:#4f7942;--red:#a8412f;--gold:#7058a8;--navy:#3a2a68;--border:#d8d0e8;--shadow:0 1px 3px rgba(60,40,100,.09)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Georgia,'Times New Roman',serif;padding:22px;max-width:1100px;margin:auto}
+.hd{border-bottom:2px solid var(--gold);padding-bottom:12px;margin-bottom:18px}
+.firm{font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);font-family:'Segoe UI',sans-serif;font-weight:600}
+h1{font-size:24px;margin:4px 0 2px;font-weight:600}
+h2{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--navy);margin:24px 0 10px;font-family:'Segoe UI',sans-serif;border-left:3px solid var(--gold);padding-left:9px}
+.sub{color:var(--mut);font-size:12px;font-family:'Segoe UI',sans-serif}
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:14px}
+.kpi{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:14px 16px;box-shadow:var(--shadow)}
+.kpi .lbl{color:var(--mut);font-size:10px;text-transform:uppercase;letter-spacing:.08em;font-family:'Segoe UI',sans-serif}
+.kpi .val{font-size:20px;font-weight:600;margin-top:5px}
+.kpi .delta{font-size:10.5px;margin-top:3px;font-family:'Segoe UI',sans-serif}
+.grid2{display:grid;grid-template-columns:1.6fr 1fr;gap:16px}
+.grid11{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.card{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:16px;box-shadow:var(--shadow)}
+.card h3{margin:0 0 10px;font-size:14px;color:var(--navy);font-weight:600}
+.tbl{width:100%;border-collapse:collapse;font-size:12px}
+.tbl th{text-align:left;color:var(--mut);font-weight:600;padding:6px 7px;border-bottom:2px solid var(--border);font-size:10px;text-transform:uppercase;letter-spacing:.05em;font-family:'Segoe UI',sans-serif}
+.tbl td{padding:7px 8px;border-bottom:1px solid #e8e0f4;vertical-align:middle}
+.tbl tr:last-child td{border-bottom:none}
+.num{text-align:right;font-variant-numeric:tabular-nums;font-family:'Segoe UI',sans-serif}
+.pos{color:var(--green)} .neg{color:var(--red)}
+.bar{height:7px;border-radius:4px;background:#d8d0e8;overflow:hidden;margin-top:3px}
+.bar>i{display:block;height:100%}
+.highlight{font-size:11.5px;color:#1a4a1a;background:#e8f5e9;border-left:3px solid var(--green);padding:9px 12px;border-radius:5px;margin:10px 0;font-family:'Segoe UI',sans-serif}
+.alert-amber{font-size:11.5px;color:#5a3808;background:#fff3e0;border-left:3px solid #e67e22;padding:9px 12px;border-radius:5px;margin:10px 0;font-family:'Segoe UI',sans-serif}
+.note{font-size:11.5px;color:#3a2a68;background:#ebe8f4;border-left:3px solid var(--gold);padding:9px 12px;border-radius:5px;margin:10px 0;font-family:'Segoe UI',sans-serif}
+.ctrls{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:12px}
+.ctrls button{background:var(--paper);color:var(--navy);border:1px solid var(--border);border-radius:6px;padding:5px 12px;font-size:12px;cursor:pointer;font-family:'Segoe UI',sans-serif}
+.ctrls button.on{background:var(--navy);color:#faf8fc;border-color:var(--navy)}
+.rowbar{margin:6px 0;font-family:'Segoe UI',sans-serif}
+.rowbar .l{display:flex;justify-content:space-between;font-size:12px;margin-bottom:2px}
+.rowbar .l b{font-weight:600}
+.scrollbox{max-height:300px;overflow-y:auto;padding-right:5px}
+.scrollbox::-webkit-scrollbar{width:6px}.scrollbox::-webkit-scrollbar-thumb{background:#c8c0d8;border-radius:3px}
+canvas{max-height:260px}
+.sec{margin-top:16px}
+.tag{display:inline-block;font-size:9px;font-weight:700;color:#fff;border-radius:3px;padding:1px 5px;margin-left:4px;font-family:'Segoe UI',sans-serif;vertical-align:middle}
+.tag-in{background:var(--green)} .tag-amber{background:#e67e22} .tag-ok{background:#4f7942} .tag-tc{background:#2f4858}
+.hl-green{background:#f0faf0} .hl-amber{background:#fff8ee} .hl-blue{background:#e8f0fe}
+.proj-table{width:100%;border-collapse:collapse;font-size:12px;font-family:'Segoe UI',sans-serif}
+.proj-table th{background:var(--navy);color:#fff;padding:7px 10px;text-align:left;font-size:10px;text-transform:uppercase;letter-spacing:.05em}
+.proj-table td{padding:7px 10px;border-bottom:1px solid var(--border)}
+.proj-table tr:last-child td{border-bottom:none}
+.proj-tc td{background:#e8f0fe;font-weight:600}
+.proj-nomina td{background:#f0faf0;font-weight:600}
+.proj-cierre td{background:#ebe8f4;font-weight:700}
+@media(max-width:820px){.kpis,.grid11{grid-template-columns:repeat(2,1fr)}.grid2{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="hd">
+ <div class="firm">Javier Tebas Medrano — Cuenta Personal</div>
+ <h1>Informe de Tesorería · Banco Sabadell · 2026</h1>
+ <div class="sub">Movimientos cuenta personal Sabadell · <b>Actualizado 04/09/2026 · Proyección hasta 30/09/2026</b></div>
+</div>
+
+<div class="kpis" id="kpis"></div>
+
+<div class="highlight">✅ <b>Septiembre muy positivo: saldo proyectado 30/09 — 287.655 €.</b> Entran las dos devoluciones de préstamo de TC Estudio (50.000 € el 07/09 + 50.000 € el 15/09) y la nómina LaLiga septiembre (157.673 €, 26/09).</div>
+<div class="alert-amber">🔔 <b>Nueva aportación de capital a Ideas del Sur — 25.000 €</b> (23/09): confirmar si está prevista y documentada.</div>
+<div class="alert-amber">🔔 <b>Transferencia al taller en Dubai — 960 €</b> (24/09) + <b>Transferencia a Diego Álvaro García — 7.000 €</b> (01/09): confirmar concepto de ambas.</div>
+<div class="alert-amber">🔔 <b>Transferencia a De la Cruz Sastre — 4.296 €</b> (29/09): confirmar concepto.</div>
+<div class="note">Los cobros de TC Estudio son <b>devoluciones parciales del préstamo</b> concedido por J. Tebas al despacho — no son ingresos nuevos, reducen la deuda de TC Estudio con J. Tebas. Octubre y siguientes: sin movimientos registrados.</div>
+
+<h2>Proyección saldo septiembre — día a día</h2>
+<div class="card">
+  <canvas id="chProyeccion" style="max-height:280px"></canvas>
+  <div class="sub" style="margin-top:6px">Los dos cobros de TC Estudio (07/09 y 15/09) y la nómina LaLiga (26/09) elevan el saldo de 95.069 € a <b>287.655 €</b> al cierre de septiembre.</div>
+</div>
+
+<h2>Detalle operaciones septiembre previstas</h2>
+<div class="card">
+  <table class="proj-table">
+    <thead><tr><th>Fecha</th><th>Concepto</th><th style="text-align:right">Ingreso</th><th style="text-align:right">Cargo</th><th style="text-align:right">Saldo</th></tr></thead>
+    <tbody>
+      <tr><td colspan="4"><b>Saldo inicial 04/09</b></td><td style="text-align:right;font-weight:700;color:var(--green)">95.069 €</td></tr>
+      <tr><td>05–06/09</td><td>Gastos corrientes (04/09 ya incluidos)</td><td></td><td style="text-align:right;color:var(--red)">—</td><td style="text-align:right">95.069 €</td></tr>
+      <tr class="proj-tc"><td>07/09</td><td>🏛️ <b>TRANSF. TEBAS COIDURAS — Dev. Préstamo</b></td><td style="text-align:right;color:var(--green)"><b>+50.000 €</b></td><td></td><td></td></tr>
+      <tr><td>07/09</td><td>Meday Haus refacturación (5.964 €) + alquiler Ideas del Sur (4.025 €) + varios</td><td></td><td style="text-align:right;color:var(--red)">−14.495 €</td><td style="text-align:right;font-weight:600;color:var(--green)">130.573 €</td></tr>
+      <tr><td>08–09/09</td><td>Gastos corrientes (ahorro, Telefónica…)</td><td></td><td style="text-align:right;color:var(--red)">−456 €</td><td style="text-align:right">130.117 €</td></tr>
+      <tr><td>10/09</td><td>Transferencia de Marta Coiduras</td><td style="text-align:right;color:var(--green)">+5.000 €</td><td style="text-align:right;color:var(--red)">−500 €</td><td style="text-align:right">134.617 €</td></tr>
+      <tr><td>11–14/09</td><td>Gastos corrientes (El Confidencial, suscripciones, Anatoly…)</td><td style="text-align:right;color:var(--green)">+159 €</td><td style="text-align:right;color:var(--red)">−666 €</td><td style="text-align:right">134.110 €</td></tr>
+      <tr class="proj-tc"><td>15/09</td><td>🏛️ <b>TRANSF. TEBAS COIDURAS — Dev. Préstamo</b></td><td style="text-align:right;color:var(--green)"><b>+50.000 €</b></td><td style="text-align:right;color:var(--red)">−220 €</td><td style="text-align:right;font-weight:600;color:var(--green)">183.890 €</td></tr>
+      <tr><td>22–25/09</td><td>Gastos corrientes + ahorro + Anatoly + Belén</td><td></td><td style="text-align:right;color:var(--red)">−1.663 €</td><td style="text-align:right">182.227 €</td></tr>
+      <tr><td>23/09</td><td>🔶 Aportación capital Ideas del Sur</td><td></td><td style="text-align:right;color:var(--red)">−25.000 €</td><td style="text-align:right;color:var(--red)">157.227 €</td></tr>
+      <tr><td>24/09</td><td>JTL segurcaixa + taller Dubai + comisión divisa</td><td></td><td style="text-align:right;color:var(--red)">−1.572 €</td><td style="text-align:right">155.655 €</td></tr>
+      <tr class="proj-nomina"><td>26/09</td><td>✅ <b>Nómina LaLiga septiembre</b> (LaLiga Group + Liga Fútbol)</td><td style="text-align:right;color:var(--green)"><b>+157.673 €</b></td><td style="text-align:right;color:var(--red)">−533 €</td><td style="text-align:right;font-weight:600;color:var(--green)">312.795 €</td></tr>
+      <tr><td>29/09</td><td>Meday Haus octubre (6.000 €) + De la Cruz Sastre (4.296 €) + ahorro</td><td></td><td style="text-align:right;color:var(--red)">−10.559 €</td><td style="text-align:right">302.236 €</td></tr>
+      <tr><td>30/09</td><td>Alquiler Ideas del Sur (3.776 €) + nóminas doméstico (4.029 €) + SS + JTL + varios</td><td></td><td style="text-align:right;color:var(--red)">−14.581 €</td><td style="text-align:right;font-weight:700;color:var(--green)">287.655 €</td></tr>
+      <tr class="proj-cierre"><td colspan="4">📅 <b>Cierre septiembre 2026</b></td><td style="text-align:right;color:var(--green);font-size:15px"><b>287.655 €</b></td></tr>
+    </tbody>
+  </table>
+</div>
+
+<h2>Evolución mensual del cashflow</h2>
+<div class="ctrls">
+  <button data-m="bars" class="on">Cobros vs Pagos</button>
+  <button data-m="neto">Resultado neto</button>
+  <button data-m="acum">Neto acumulado</button>
+</div>
+<div class="card"><canvas id="chTime"></canvas></div>
+
+<div class="grid2 sec">
+  <div class="card"><h3>Origen de los ingresos</h3><canvas id="chCli"></canvas></div>
+  <div class="card"><h3>Destino de los pagos</h3><canvas id="chGto"></canvas></div>
+</div>
+
+<h2>Posición intercompany J. Tebas ↔ Ideas del Sur</h2>
+<div class="card">
+  <table class="tbl">
+    <thead><tr><th>Movimiento</th><th>Fecha</th><th class="num">Importe</th><th>Sentido</th></tr></thead>
+    <tbody>
+      <tr style="background:#e8f5e9"><td>Préstamos de J. Tebas a Ideas del Sur</td><td>mar/26</td><td class="num pos">900.000</td><td>J. Tebas → Ideas del Sur</td></tr>
+      <tr style="background:#e8f5e9"><td>Ampliaciones capital (total)</td><td>may–jun/26</td><td class="num pos">540.000</td><td>J. Tebas → Ideas del Sur</td></tr>
+      <tr style="background:#e8f5e9"><td>Aportación capital sep/26</td><td>23/09/26</td><td class="num pos">25.000</td><td>J. Tebas → Ideas del Sur</td></tr>
+      <tr><td>Devolución parcial 1ª — Ideas del Sur</td><td>30/03/26</td><td class="num neg">320.000</td><td>Ideas del Sur → J. Tebas</td></tr>
+      <tr style="background:#fff3e0"><td>Préstamo de Ideas del Sur a J. Tebas</td><td>06/08/26</td><td class="num pos">30.000</td><td>Ideas del Sur → J. Tebas</td></tr>
+      <tr style="background:#e8f0fe"><td><b>Dev. Préstamo TC Estudio (1ª)</b></td><td>07/09/26</td><td class="num pos"><b>50.000</b></td><td>TC Estudio → J. Tebas</td></tr>
+      <tr style="background:#e8f0fe"><td><b>Dev. Préstamo TC Estudio (2ª)</b></td><td>15/09/26</td><td class="num pos"><b>50.000</b></td><td>TC Estudio → J. Tebas</td></tr>
+      <tr style="font-weight:700;background:#f3ead4"><td>Deuda residual Ideas del Sur con J. Tebas (préstamos)</td><td></td><td class="num neg" style="color:var(--red)">580.000 €</td><td>pendiente devolución</td></tr>
+      <tr style="font-weight:700;background:#fff3e0"><td>Nuevo préstamo Ideas del Sur → J. Tebas</td><td>06/08/26</td><td class="num neg" style="color:var(--red)">30.000 €</td><td>pendiente devolución</td></tr>
+    </tbody>
+  </table>
+  <div class="sub" style="margin-top:8px">Las devoluciones de TC Estudio (100.000 € en septiembre) son parciales del préstamo que J. Tebas tiene con el despacho — se registran como cobros en la cuenta personal pero reducen la deuda de TC. Ideas del Sur sigue siendo acreedora de J. Tebas por <b>610.000 €</b>.</div>
+</div>
+
+<h2>Top movimientos acumulados</h2>
+<div class="grid11">
+  <div class="card"><h3>Top cobros</h3><div class="scrollbox"><div id="topIng"></div></div></div>
+  <div class="card"><h3>Top gastos</h3><div class="scrollbox"><div id="topCar"></div></div></div>
+</div>
+
+<h2>Resumen ejecutivo</h2>
+<div class="card"><ul id="situacion" style="margin:0;padding-left:18px;line-height:1.8;font-size:13.5px"></ul></div>
+
+<div class="sub" style="margin-top:20px">Informe generado a partir del libro de Tesorería · Javier Tebas Medrano · Banco Sabadell · ejercicio 2026 · corte 04/09/2026 con proyección hasta 30/09/2026.</div>
+
+<script>
+const D={
+  saldo_hoy:95068.86,
+  saldo_30sep:287655.06,
+  tot_ing:2915095.68, tot_car:2925227.36, n_mov:927,
+  meses:[
+    {mes:"2026-01",ing:158477,car:167092,neto:-8615},
+    {mes:"2026-02",ing:257970,car:96246,neto:161724},
+    {mes:"2026-03",ing:1308623,car:1119819,neto:188804},
+    {mes:"2026-04",ing:172950,car:417804,neto:-244854},
+    {mes:"2026-05",ing:158498,car:90177,neto:68321},
+    {mes:"2026-06",ing:506388,car:650989,neto:-144601},
+    {mes:"2026-07",ing:162517,car:269330,neto:-106813},
+    {mes:"2026-08",ing:188829,car:80898,neto:107931},
+    {mes:"2026-09",ing:263675,car:103118,neto:160557},
+    {mes:"2026-10",ing:158191,car:55995,neto:102196},
+    {mes:"2026-11",ing:0,car:0,neto:0},
+    {mes:"2026-12",ing:0,car:0,neto:0}
+  ],
+  // Proyección diaria septiembre
+  proyLabs:["04/09\nInicio","07/09\nTC 1º\n+50k","10/09\nMarta\n+5k","15/09\nTC 2º\n+50k","23/09\nIdeas\n−25k","26/09\nLaLiga\n+157k","30/09\nCierre"],
+  proySaldos:[95069, 130573, 134617, 183890, 157369, 312795, 287655],
+  clientes:[
+    {k:"LaLiga / LaLiga Group (nómina + liquidaciones)",v:2066037},
+    {k:"Dev. Préstamo TC Estudio (sep/26)",v:100000},
+    {k:"Devolución préstamos (Monart + otros)",v:320000},
+    {k:"Liga Nacional / Transf. Liga de Fútbol",v:399049},
+    {k:"Otros",v:30010}
+  ],
+  gastos:[
+    {k:"Transferencias a Ideas del Sur (préstamos + capital)",v:1175000},
+    {k:"Liquidación IVA 1T + 2T (Mod. 303)",v:461920},
+    {k:"Devolución préstamo MONART SA",v:100000},
+    {k:"Alquiler Meday Haus (acum. + oct previsto)",v:60000},
+    {k:"Tarjetas 1019 Huesca + 7045 (acum.)",v:54726},
+    {k:"IVA 4T 2025 fraccionado",v:42534},
+    {k:"Vuelo privado Madrid-Brač",v:36950},
+    {k:"Tarjeta crédito JTM (acum.)",v:31495},
+    {k:"Transferencias a Infovaticana",v:25000}
+  ],
+  top_ing:[
+    {k:"Transf. LaLiga Group International (acumulado)",v:743863},
+    {k:"LaLiga Group international SL (acumulado)",v:615020},
+    {k:"LaLiga Group — liq. extraordinaria (26/06)",v:612701},
+    {k:"Devolución préstamo Monart SA",v:320000},
+    {k:"Transf. LaLiga Nacional Fútbol Profesional",v:238667},
+    {k:"La liga fútbol (nómina mensual acum.)",v:209605},
+    {k:"Nómina LaLiga septiembre (26/09)",v:157673},
+    {k:"Nómina LaLiga agosto (26/08)",v:158036},
+    {k:"Dev. Préstamo TC Estudio 07/09",v:50000},
+    {k:"Dev. Préstamo TC Estudio 15/09",v:50000}
+  ],
+  top_car:[
+    {k:"Transf. a Ideas del Sur (préstamos + capital)",v:1175000},
+    {k:"Mod. 303 1T + 2T — liquidación IVA",v:461920},
+    {k:"Transf. MONART SA — devolución préstamo",v:100000},
+    {k:"Alquiler Meday Haus (acumulado)",v:60000},
+    {k:"Tarjetas 1019 Huesca + 7045 (acum.)",v:54726},
+    {k:"IVA 4T 2025 fraccionado (5 plazos)",v:42534},
+    {k:"Vuelo privado Madrid-Brač (Admiral Jet)",v:36950},
+    {k:"Tarjeta crédito JTM (acum.)",v:31495},
+    {k:"Transferencias a Infovaticana",v:25000},
+    {k:"De la Cruz Sastre (29/09)",v:4296}
+  ]
+};
+
+const eur=v=>new Intl.NumberFormat('es-ES',{style:'currency',currency:'EUR',maximumFractionDigits:0}).format(v);
+const eur2=v=>new Intl.NumberFormat('es-ES',{style:'currency',currency:'EUR',minimumFractionDigits:2}).format(v);
+const col=v=>v>=0?'var(--green)':'var(--red)';
+const lab=v=>v>=0?'+ '+eur(v):eur(v);
+const neto=D.tot_ing-D.tot_car;
+
+document.getElementById('kpis').innerHTML=[
+  {lbl:'Saldo actual 04/09',val:eur2(D.saldo_hoy),delta:'▲ +86.106 € vs 07/08',dcol:'var(--green)',color:'var(--green)'},
+  {lbl:'Saldo proyectado 30/09',val:eur2(D.saldo_30sep),delta:'▲ +192.586 € vs hoy',dcol:'var(--green)',color:'var(--green)'},
+  {lbl:'Dev. préstamo TC (sep)',val:'100.000 €',delta:'07/09 (50k) + 15/09 (50k)',dcol:'var(--navy)'},
+  {lbl:'Nómina LaLiga sep',val:'157.673 €',delta:'Prevista 26/09',dcol:'var(--green)'}
+].map(k=>`<div class="kpi"><div class="lbl">${k.lbl}</div><div class="val" style="${k.color?'color:'+k.color:''}">${k.val}</div><div class="delta" style="color:${k.dcol}">${k.delta}</div></div>`).join('');
+
+// Gráfico proyección septiembre
+const bgProy=D.proySaldos.map(v=>v<0?'rgba(168,65,47,0.8)':'rgba(112,88,168,0.75)');
+new Chart(document.getElementById('chProyeccion'),{type:'bar',
+  data:{labels:D.proyLabs,datasets:[{label:'Saldo Sabadell',data:D.proySaldos,backgroundColor:bgProy,borderRadius:4}]},
+  options:{responsive:true,plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>'Saldo: '+eur(c.raw)}}},
+    scales:{y:{ticks:{callback:v=>eur(v)},grid:{color:'rgba(0,0,0,0.05)'},suggestedMin:0,suggestedMax:320000},x:{ticks:{font:{size:9},maxRotation:0},grid:{display:false}}}}
+});
+
+const meses=D.meses;let ac=0;const labs=[],sA=[];
+meses.forEach(m=>{ac+=m.neto;labs.push(m.mes.slice(5));sA.push(ac);});
+let chT=null;
+function buildChTime(m){
+  if(chT)chT.destroy();const ml=meses.map(x=>x.mes.slice(5));let cfg;
+  if(m==='bars'){cfg={type:'bar',data:{labels:ml,datasets:[
+    {label:'Cobros',data:meses.map(x=>x.ing),backgroundColor:'rgba(112,88,168,0.7)'},
+    {label:'Pagos',data:meses.map(x=>x.car),backgroundColor:'rgba(168,65,47,0.7)'}
+  ]},options:{responsive:true,plugins:{legend:{position:'bottom'}},scales:{x:{grid:{display:false}},y:{ticks:{callback:v=>eur(v)}}}}};}
+  else if(m==='neto'){cfg={type:'bar',data:{labels:ml,datasets:[{label:'Neto',data:meses.map(x=>x.neto),backgroundColor:meses.map(x=>x.neto>=0?'rgba(112,88,168,0.7)':'rgba(168,65,47,0.7)')}]},options:{responsive:true,plugins:{legend:{display:false}},scales:{x:{grid:{display:false}},y:{ticks:{callback:v=>eur(v)}}}}};}
+  else{let a=0;const ac2=meses.map(x=>{a+=x.neto;return a;});cfg={type:'line',data:{labels:ml,datasets:[{label:'Acumulado',data:ac2,borderColor:'#3a2a68',backgroundColor:'rgba(58,42,104,0.08)',fill:true,tension:0.3}]},options:{responsive:true,plugins:{legend:{display:false}},scales:{x:{grid:{display:false}},y:{ticks:{callback:v=>eur(v)}}}}};}
+  chT=new Chart(document.getElementById('chTime'),cfg);
+}
+buildChTime('bars');
+document.querySelectorAll('.ctrls button').forEach(b=>b.addEventListener('click',()=>{
+  document.querySelectorAll('.ctrls button').forEach(x=>x.classList.remove('on'));
+  b.classList.add('on');buildChTime(b.dataset.m);
+}));
+
+new Chart(document.getElementById('chCli'),{type:'doughnut',data:{labels:D.clientes.map(x=>x.k),datasets:[{data:D.clientes.map(x=>x.v),backgroundColor:['#7058a8','#2f4858','#3a2a68','#9078c8','#c8b8e8']}]},options:{plugins:{legend:{position:'bottom',labels:{font:{size:10}}}},cutout:'60%'}});
+const gT=D.gastos.slice(0,7),gR=D.gastos.slice(7).reduce((a,b)=>a+b.v,0);
+new Chart(document.getElementById('chGto'),{type:'doughnut',data:{labels:[...gT.map(x=>x.k),'Otros'],datasets:[{data:[...gT.map(x=>x.v),gR],backgroundColor:['#a8412f','#c86828','#578a8a','#b08d3e','#4f7942','#7a5c8a','#3a2a68','#8a8170']}]},options:{plugins:{legend:{position:'bottom',labels:{font:{size:10}}}},cutout:'60%'}});
+
+const mx_i=D.top_ing[0].v;
+document.getElementById('topIng').innerHTML=D.top_ing.map(g=>`<div class="rowbar"><div class="l"><b>${g.k}</b><span>${eur(g.v)}</span></div><div class="bar"><i style="width:${(g.v/mx_i*100).toFixed(0)}%;background:#7058a8"></i></div></div>`).join('');
+const mx_c=D.top_car[0].v;
+document.getElementById('topCar').innerHTML=D.top_car.map(g=>`<div class="rowbar"><div class="l"><b>${g.k}</b><span>${eur(g.v)}</span></div><div class="bar"><i style="width:${(g.v/mx_c*100).toFixed(0)}%;background:var(--red)"></i></div></div>`).join('');
+
+const sit=[
+  `Saldo actual (04/09): <b style="color:var(--green)">${eur2(D.saldo_hoy)}</b>. Saldo proyectado cierre septiembre (30/09): <b style="color:var(--green)">${eur2(D.saldo_30sep)}</b>.`,
+  `<b>Septiembre — tres entradas clave:</b> Dev. Préstamo TC Estudio 1ª — <b>50.000 €</b> (07/09) · Dev. Préstamo TC Estudio 2ª — <b>50.000 €</b> (15/09) · Nómina LaLiga — <b>157.673 €</b> (26/09). Total cobros septiembre: 263.675 €.`,
+  `<b>🔶 Nueva aportación de capital a Ideas del Sur — 25.000 €</b> (23/09). Confirmar si está documentada. Total inyectado en Ideas del Sur en 2026 (préstamos + capital): <b>1.465.000 €</b>.`,
+  `<b>Transferencia a De la Cruz Sastre — 4.296 €</b> (29/09): confirmar concepto. <b>Taller en Dubai — 960 €</b> (24/09): gastos del piso de Dubai.`,
+  `Posición intercompany: Ideas del Sur sigue siendo acreedora de J. Tebas por <b>610.000 €</b>. Las devoluciones de TC Estudio son de un préstamo diferente (del despacho a J. Tebas).`,
+  `Octubre: nómina LaLiga prevista (~158.000 €). Noviembre y diciembre sin movimientos registrados.`
+];
+document.getElementById('situacion').innerHTML=sit.map(s=>`<li style="margin-bottom:4px">${s}</li>`).join('');
+</script>
+</body>
+</html>
