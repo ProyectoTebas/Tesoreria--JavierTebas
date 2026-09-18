@@ -46,7 +46,7 @@ canvas{max-height:260px}
 .sec{margin-top:16px}
 .tag{display:inline-block;font-size:9px;font-weight:700;color:#fff;border-radius:3px;padding:1px 5px;margin-left:4px;font-family:'Segoe UI',sans-serif;vertical-align:middle}
 .tag-in{background:var(--green)} .tag-amber{background:#e67e22} .tag-ok{background:#4f7942} .tag-tc{background:#2f4858}
-.hl-green{background:#f0faf0} .hl-amber{background:#fff8ee} .hl-blue{background:#e8f0fe}
+.hl-green{background:#f0faf0} .hl-amber{background:#fff8ee}
 .proj-table{width:100%;border-collapse:collapse;font-size:12px;font-family:'Segoe UI',sans-serif}
 .proj-table th{background:var(--navy);color:#fff;padding:7px 10px;text-align:left;font-size:10px;text-transform:uppercase;letter-spacing:.05em}
 .proj-table td{padding:7px 10px;border-bottom:1px solid var(--border)}
@@ -62,45 +62,43 @@ canvas{max-height:260px}
 <div class="hd">
  <div class="firm">Javier Tebas Medrano — Cuenta Personal</div>
  <h1>Informe de Tesorería · Banco Sabadell · 2026</h1>
- <div class="sub">Movimientos cuenta personal Sabadell · <b>Actualizado 11/09/2026 · Proyección hasta 31/10/2026</b></div>
+ <div class="sub">Movimientos cuenta personal Sabadell · <b>Actualizado 18/09/2026 · Proyección hasta 31/10/2026</b></div>
 </div>
 
 <div class="kpis" id="kpis"></div>
 
-<div class="highlight">✅ <b>Ambas devoluciones de préstamo TC Estudio confirmadas en el Excel:</b> 50.000 € el 14/09 y 50.000 € el 15/09. Saldo proyectado cierre septiembre: <b>297.134 €</b>. Cierre octubre: <b>399.330 €</b>.</div>
-<div class="highlight">✅ <b>IVA 4T 2025 — 6º y último plazo pagado el 07/09 — 8.536 €.</b> Queda liquidada la deuda fraccionada del IVA 4T 2025.</div>
-<div class="alert-amber">🔔 <b>Matrícula Universidad Anatoly Tebas Coiduras — 4.578 €</b> (03/10): gasto previsto. Confirmar.</div>
-<div class="alert-amber">🔔 <b>Transferencia a De la Cruz Sastre — 4.296 €</b> (29/09) y <b>Marta Soriano — 5.130 €</b> (30/10): confirmar concepto de ambas.</div>
-<div class="alert-amber">🔔 <b>Residencia Belén (Student Housing) — 1.314 €/mes</b> desde oct: nuevo gasto recurrente. Confirmar duración.</div>
-<div class="note">La nómina LaLiga septiembre entra el <b>26/09 — 157.673 €</b> y octubre el <b>28/10 — 157.574 €</b>. Posición muy sólida en ambos meses.</div>
+<div class="highlight">✅ <b>Septiembre muy sólido:</b> Dev. Préstamo TC 1ª (50k, 21/09) + Dev. Préstamo TC 2ª (50k, 25/09) + Nómina LaLiga sep (157.673 €, 26/09) → cierre septiembre: <b>290.839 €</b>. Cierre octubre: <b>393.035 €</b>.</div>
+<div class="alert-amber">🔔 <b>Meday Haus — anticipo alquiler octubre 6.000 €</b> pagado el 17/09 (anticipado). Confirmar si es habitual o pago adelantado puntual.</div>
+<div class="alert-amber">🔔 <b>De la Cruz Sastre — 4.296 €</b> (29/09) y <b>Marta Soriano — 5.130 €</b> (30/10): confirmar concepto de ambas.</div>
+<div class="alert-amber">🔔 <b>Matrícula Universidad Anatoly — 4.578 €</b> (03/10). <b>Student Housing Belén — 1.314 €/mes</b> desde oct: nuevo gasto recurrente.</div>
+<div class="note">Semana 12–18/09 tranquila — gastos corrientes y tarjetas. La semana del 21/09 es la clave: entran las dos devoluciones de TC (100k) y la nómina LaLiga (157k).</div>
 
 <h2>Proyección saldo septiembre–octubre 2026</h2>
 <div class="card">
   <table class="proj-table">
     <thead><tr><th>Fecha</th><th>Concepto clave</th><th style="text-align:right">Ingreso</th><th style="text-align:right">Cargo</th><th style="text-align:right">Saldo</th></tr></thead>
     <tbody>
-      <tr><td colspan="4"><b>Saldo real 11/09/2026</b></td><td style="text-align:right;font-weight:700;color:var(--green)">77.228 €</td></tr>
+      <tr><td colspan="4"><b>Saldo real 18/09/2026</b></td><td style="text-align:right;font-weight:700;color:var(--green)">69.717 €</td></tr>
 
-      <tr class="proj-mes"><td colspan="5">SEPTIEMBRE — RESTO DEL MES</td></tr>
-      <tr class="proj-tc"><td>14/09</td><td>🏛️ <b>Dev. Préstamo TC Estudio 1ª</b> + Marta Coiduras + gastos varios</td><td style="text-align:right;color:var(--green)">+55.159 €</td><td style="text-align:right;color:var(--red)">−13.857 €</td><td style="text-align:right;font-weight:600;color:var(--green)">118.530 €</td></tr>
-      <tr class="proj-tc"><td>15/09</td><td>🏛️ <b>Dev. Préstamo TC Estudio 2ª</b> + ahorro</td><td style="text-align:right;color:var(--green)">+50.000 €</td><td style="text-align:right;color:var(--red)">−220 €</td><td style="text-align:right;font-weight:600;color:var(--green)">168.311 €</td></tr>
-      <tr><td>22–25/09</td><td>Ahorro expansión + Fundación Juan XXIII + Belén + Anatoly</td><td></td><td style="text-align:right;color:var(--red)">−2.235 €</td><td style="text-align:right">166.076 €</td></tr>
-      <tr><td>24/09</td><td>JTL seguro Adeslas + taller Dubai + comisión divisa</td><td></td><td style="text-align:right;color:var(--red)">−1.572 €</td><td style="text-align:right">164.504 €</td></tr>
-      <tr class="proj-nomina"><td>26/09</td><td>✅ <b>Nómina LaLiga septiembre</b> (LaLiga Group + Liga Fútbol)</td><td style="text-align:right;color:var(--green)">+157.673 €</td><td style="text-align:right;color:var(--red)">−733 €</td><td style="text-align:right;font-weight:600;color:var(--green)">321.444 €</td></tr>
-      <tr><td>29/09</td><td>Meday Haus octubre (6.000 €) + De la Cruz Sastre (4.296 €) + ahorro</td><td></td><td style="text-align:right;color:var(--red)">−10.559 €</td><td style="text-align:right">310.885 €</td></tr>
-      <tr><td>30/09</td><td>Alquileres Ideas del Sur + nóminas doméstico + SS + JTL + comisiones</td><td></td><td style="text-align:right;color:var(--red)">−13.751 €</td><td style="text-align:right;font-weight:600;color:var(--green)">297.134 €</td></tr>
-      <tr class="proj-cierre"><td colspan="4">📅 <b>Cierre septiembre 2026</b></td><td style="text-align:right;color:var(--green);font-size:14px"><b>297.134 €</b></td></tr>
+      <tr class="proj-mes"><td colspan="5">SEPTIEMBRE — RESTO</td></tr>
+      <tr class="proj-tc"><td>21/09</td><td>🏛️ <b>Dev. Préstamo TC Estudio 1ª</b> + Ideas del Sur alquiler + varios</td><td style="text-align:right;color:var(--green)">+50.000 €</td><td style="text-align:right;color:var(--red)">−7.701 €</td><td style="text-align:right;font-weight:600;color:var(--green)">112.016 €</td></tr>
+      <tr><td>22–23/09</td><td>Gastos corrientes</td><td></td><td style="text-align:right;color:var(--red)">−463 €</td><td style="text-align:right">111.553 €</td></tr>
+      <tr><td>24/09</td><td>JTL segurcaixa + taller Dubai + comisión divisa</td><td></td><td style="text-align:right;color:var(--red)">−1.572 €</td><td style="text-align:right">109.981 €</td></tr>
+      <tr class="proj-tc"><td>25/09</td><td>🏛️ <b>Dev. Préstamo TC Estudio 2ª</b> + Belén Tebas</td><td style="text-align:right;color:var(--green)">+50.000 €</td><td style="text-align:right;color:var(--red)">−1.200 €</td><td style="text-align:right;font-weight:600;color:var(--green)">158.781 €</td></tr>
+      <tr class="proj-nomina"><td>26/09</td><td>✅ <b>Nómina LaLiga septiembre</b></td><td style="text-align:right;color:var(--green)">+157.673 €</td><td style="text-align:right;color:var(--red)">−733 €</td><td style="text-align:right;font-weight:600;color:var(--green)">315.721 €</td></tr>
+      <tr><td>29/09</td><td>Meday Haus oct (6.000 €) + De la Cruz Sastre (4.296 €)</td><td></td><td style="text-align:right;color:var(--red)">−10.559 €</td><td style="text-align:right">305.162 €</td></tr>
+      <tr><td>30/09</td><td>Ideas del Sur alquileres + nóminas doméstico + SS + JTL + comisiones</td><td></td><td style="text-align:right;color:var(--red)">−14.322 €</td><td style="text-align:right;font-weight:600;color:var(--green)">290.839 €</td></tr>
+      <tr class="proj-cierre"><td colspan="4">📅 <b>Cierre septiembre 2026</b></td><td style="text-align:right;color:var(--green);font-size:14px"><b>290.839 €</b></td></tr>
 
       <tr class="proj-mes"><td colspan="5">OCTUBRE 2026</td></tr>
-      <tr><td>01/10</td><td>Mutualidad Abogacía + Recibo TC Estudio + Segurcaixa JTL</td><td></td><td style="text-align:right;color:var(--red)">−3.195 €</td><td style="text-align:right">293.939 €</td></tr>
-      <tr><td>02/10</td><td>Student Housing Belén (1.314 €) + Meday refact. (9.861 €) + Players Renting (2.238 €) + inv. infantiles</td><td></td><td style="text-align:right;color:var(--red)">−14.348 €</td><td style="text-align:right">279.591 €</td></tr>
-      <tr><td>03/10</td><td>Marta Coiduras (1.500 €) + alquiler San Telmo (2.700 €) + tarjeta JTM (4.157 €) + matrícula Anatoly (4.578 €)</td><td></td><td style="text-align:right;color:var(--red)">−14.951 €</td><td style="text-align:right">264.640 €</td></tr>
-      <tr><td>06–16/10</td><td>Telefónica + Anatoly + gastos corrientes + Canal Isabel II + donación</td><td style="text-align:right;color:var(--green)">+431 €</td><td style="text-align:right;color:var(--red)">−4.458 €</td><td style="text-align:right">260.613 €</td></tr>
-      <tr><td>20–27/10</td><td>Belén + JTL + ahorro + varios</td><td></td><td style="text-align:right;color:var(--red)">−3.037 €</td><td style="text-align:right">257.576 €</td></tr>
-      <tr class="proj-nomina"><td>28/10</td><td>✅ <b>Nómina LaLiga octubre</b> (LaLiga Group + Liga Fútbol)</td><td style="text-align:right;color:var(--green)">+157.574 €</td><td></td><td style="text-align:right;font-weight:600;color:var(--green)">415.150 €</td></tr>
-      <tr><td>30/10</td><td>Transferencia a Marta Soriano</td><td></td><td style="text-align:right;color:var(--red)">−5.130 €</td><td style="text-align:right">410.020 €</td></tr>
-      <tr><td>31/10</td><td>Nóminas doméstico + SS autónomo + JTL + intereses</td><td></td><td style="text-align:right;color:var(--red)">−10.690 €</td><td style="text-align:right;font-weight:600;color:var(--green)">399.330 €</td></tr>
-      <tr class="proj-cierre"><td colspan="4">📅 <b>Cierre octubre 2026</b></td><td style="text-align:right;color:var(--green);font-size:14px"><b>399.330 €</b></td></tr>
+      <tr><td>01/10</td><td>Mutualidad Abogacía + TC Estudio recibo + segurcaixa JTL</td><td></td><td style="text-align:right;color:var(--red)">−3.195 €</td><td style="text-align:right">287.644 €</td></tr>
+      <tr><td>02/10</td><td>Student Housing Belén (1.314 €) + Meday refact. (9.861 €) + Players Renting (2.238 €) + inversiones infantiles</td><td></td><td style="text-align:right;color:var(--red)">−14.348 €</td><td style="text-align:right">273.296 €</td></tr>
+      <tr><td>03/10</td><td>Tarjeta JTM (4.157 €) + Roberto Bourdet (733 €) + matrícula Anatoly (4.578 €) + alquiler San Telmo (2.700 €) + Marta Coiduras (1.500 €)</td><td></td><td style="text-align:right;color:var(--red)">−14.951 €</td><td style="text-align:right">258.345 €</td></tr>
+      <tr><td>06–27/10</td><td>Gastos corrientes (Telefónica, Anatoly, Canal Isabel II, donación, Belén, JTL…)</td><td style="text-align:right;color:var(--green)">+431 €</td><td style="text-align:right;color:var(--red)">−5.637 €</td><td style="text-align:right">253.139 €</td></tr>
+      <tr class="proj-nomina"><td>28/10</td><td>✅ <b>Nómina LaLiga octubre</b></td><td style="text-align:right;color:var(--green)">+157.574 €</td><td></td><td style="text-align:right;font-weight:600;color:var(--green)">410.713 €</td></tr>
+      <tr><td>30/10</td><td>Transferencia a Marta Soriano</td><td></td><td style="text-align:right;color:var(--red)">−5.130 €</td><td style="text-align:right">405.583 €</td></tr>
+      <tr><td>31/10</td><td>Nóminas doméstico + SS autónomo + JTL</td><td></td><td style="text-align:right;color:var(--red)">−12.548 €</td><td style="text-align:right;font-weight:600;color:var(--green)">393.035 €</td></tr>
+      <tr class="proj-cierre"><td colspan="4">📅 <b>Cierre octubre 2026</b></td><td style="text-align:right;color:var(--green);font-size:14px"><b>393.035 €</b></td></tr>
     </tbody>
   </table>
 </div>
@@ -118,26 +116,25 @@ canvas{max-height:260px}
   <div class="card"><h3>Destino de los pagos</h3><canvas id="chGto"></canvas></div>
 </div>
 
-<h2>Novedades 05–11/09 · 24 operaciones</h2>
+<h2>Novedades 12–18/09 · 15 operaciones</h2>
 <div class="card">
   <table class="tbl">
     <thead><tr><th>Fecha</th><th>Concepto</th><th class="num">Ingreso</th><th class="num">Cargo</th></tr></thead>
     <tbody>
-      <tr class="hl-green"><td>10/09</td><td>Reembolso Segurcaixa Adeslas — Fra. Diego <span class="tag tag-in">cobro</span></td><td class="num pos">714,44</td><td></td></tr>
-      <tr><td>07/09</td><td>IVA 4T 2025 — 6º y último plazo ✅</td><td></td><td class="num neg">8.535,55</td></tr>
-      <tr><td>09/09</td><td>Student Housing — residencia Belén (pago internacional)</td><td></td><td class="num neg">1.325,66</td></tr>
-      <tr><td>10/09</td><td>Brandelicius</td><td></td><td class="num neg">2.182,84</td></tr>
-      <tr><td>10/09</td><td>Simon Casas SAS Nautalia SL — abonos a petición de Diego</td><td></td><td class="num neg">1.820,00</td></tr>
-      <tr><td>07/09</td><td>Transferencia a Belén Tebas</td><td></td><td class="num neg">1.000,00</td></tr>
-      <tr><td>11/09</td><td>Transferencia a Anatoly</td><td></td><td class="num neg">600,00</td></tr>
-      <tr><td>10/09</td><td>Transferencia a Gloria Medrano</td><td></td><td class="num neg">500,00</td></tr>
-      <tr><td>07/09</td><td>Telefónica</td><td></td><td class="num neg">258,98</td></tr>
-      <tr><td>07/09</td><td>Natación adaptada Madrid (x2)</td><td></td><td class="num neg">460,00</td></tr>
-      <tr><td>07/09</td><td>Ahorro expansión (x2) + Aquaservice</td><td></td><td class="num neg">232,38</td></tr>
-      <tr><td>08/09</td><td>Gas reguladora + Golf de Guara (Diego)</td><td></td><td class="num neg">402,15</td></tr>
-      <tr><td>10/09</td><td>Conde Orgaz recibo</td><td></td><td class="num neg">62,00</td></tr>
-      <tr><td>11/09</td><td>El Confidencial suscripción</td><td></td><td class="num neg">5,99</td></tr>
-      <tr style="font-weight:700;background:#ebe8f4"><td colspan="2">TOTALES PERÍODO</td><td class="num pos">714,44</td><td class="num neg">17.386,55</td></tr>
+      <tr><td>17/09</td><td><b>Meday Haus — anticipo alquiler octubre</b></td><td></td><td class="num neg">6.000,00</td></tr>
+      <tr><td>14/09</td><td>Billetes RENFE — Javier y Diego</td><td></td><td class="num neg">340,75</td></tr>
+      <tr><td>17/09</td><td>Gastos casa San Telmo tarjeta 1019</td><td></td><td class="num neg">199,70</td></tr>
+      <tr><td>14/09</td><td>Gastos casa San Telmo tarjeta 1019</td><td></td><td class="num neg">305,61</td></tr>
+      <tr><td>15/09</td><td>Gastos casa San Telmo tarjeta 1019</td><td></td><td class="num neg">52,52</td></tr>
+      <tr><td>16/09</td><td>Gastos casa San Telmo tarjeta 1019</td><td></td><td class="num neg">65,77</td></tr>
+      <tr><td>18/09</td><td>Gastos casa San Telmo tarjeta 1019</td><td></td><td class="num neg">62,28</td></tr>
+      <tr><td>16/09</td><td>El Capote Madrid — tarjeta 7045</td><td></td><td class="num neg">149,00</td></tr>
+      <tr><td>14/09</td><td>Google Play — tarjeta 7045</td><td></td><td class="num neg">21,99</td></tr>
+      <tr><td>14/09</td><td>Spotify</td><td></td><td class="num neg">20,99</td></tr>
+      <tr><td>14/09</td><td>El País suscripción</td><td></td><td class="num neg">12,00</td></tr>
+      <tr><td>14/09</td><td>Glovo mensajería tarjeta 6012 (x2)</td><td></td><td class="num neg">31,08</td></tr>
+      <tr><td>14/09</td><td>Para ahorro Sabadell (x2)</td><td></td><td class="num neg">218,46</td></tr>
+      <tr style="font-weight:700;background:#ebe8f4"><td colspan="2">TOTALES PERÍODO</td><td class="num pos">0,00</td><td class="num neg">7.481,15</td></tr>
     </tbody>
   </table>
 </div>
@@ -151,14 +148,14 @@ canvas{max-height:260px}
 <h2>Resumen ejecutivo</h2>
 <div class="card"><ul id="situacion" style="margin:0;padding-left:18px;line-height:1.8;font-size:13.5px"></ul></div>
 
-<div class="sub" style="margin-top:20px">Informe generado a partir del libro de Tesorería · Javier Tebas Medrano · Banco Sabadell · ejercicio 2026 · corte 11/09/2026 con proyección hasta 31/10/2026.</div>
+<div class="sub" style="margin-top:20px">Informe generado · Javier Tebas Medrano · Banco Sabadell · ejercicio 2026 · corte 18/09/2026 · proyección hasta 31/10/2026.</div>
 
 <script>
 const D={
-  saldo_hoy:77228.00,
-  saldo_30sep:297134.00,
-  saldo_31oct:399330.00,
-  tot_ing:2915810.12, tot_car:2943782.66, n_mov:952,
+  saldo_hoy:69717.21,
+  saldo_30sep:290839.00,
+  saldo_31oct:393035.00,
+  tot_ing:2915810.12, tot_car:2951293.45, n_mov:967,
   meses:[
     {mes:"2026-01",ing:158477,car:167092,neto:-8615},
     {mes:"2026-02",ing:257970,car:96246,neto:161724},
@@ -168,25 +165,24 @@ const D={
     {mes:"2026-06",ing:506388,car:651281,neto:-144893},
     {mes:"2026-07",ing:162517,car:269330,neto:-106813},
     {mes:"2026-08",ing:188829,car:80898,neto:107931},
-    {mes:"2026-09",ing:264390,car:94061,neto:170329},
+    {mes:"2026-09",ing:259390,car:95356,neto:164034},
     {mes:"2026-10",ing:158191,car:55995,neto:102196},
     {mes:"2026-11",ing:0,car:0,neto:0},
     {mes:"2026-12",ing:0,car:0,neto:0}
   ],
   clientes:[
-    {k:"LaLiga / LaLiga Group (nómina + liquidaciones)",v:2223710},
-    {k:"Dev. Préstamo TC Estudio (14+15/09)",v:100000},
+    {k:"LaLiga / LaLiga Group (nóminas + liquidaciones)",v:2223710},
+    {k:"Dev. Préstamo TC Estudio (21+25/09)",v:100000},
     {k:"Devolución préstamos (Monart + otros)",v:320000},
     {k:"Otros (Marta Coiduras, devoluciones)",v:272100}
   ],
   gastos:[
     {k:"Transferencias a Ideas del Sur",v:1175000},
-    {k:"Liquidación IVA 1T + 2T (Mod. 303)",v:461920},
-    {k:"IVA 4T 2025 fraccionado (6 plazos)",v:51071},
+    {k:"Liquidación IVA 1T + 2T",v:461920},
+    {k:"IVA 4T 2025 fraccionado (6 plazos) ✅",v:51071},
     {k:"Devolución préstamo MONART SA",v:100000},
-    {k:"Alquiler Meday Haus (acum.)",v:60000},
-    {k:"Tarjetas JTM (acum.)",v:37056},
-    {k:"Tarjetas 1019 Huesca + gastos San Telmo",v:54726},
+    {k:"Alquiler Meday Haus (acum.)",v:66000},
+    {k:"Tarjetas JTM + 1019 + 7045",v:91782},
     {k:"Vuelo privado Madrid-Brač",v:36950}
   ],
   top_ing:[
@@ -194,24 +190,24 @@ const D={
     {k:"LaLiga Group — liq. extraordinaria jun/26",v:612701},
     {k:"Devolución préstamo Monart SA",v:320000},
     {k:"Liga Nacional Fútbol Profesional (acum.)",v:238667},
-    {k:"Dev. Préstamo TC Estudio 14/09",v:50000},
-    {k:"Dev. Préstamo TC Estudio 15/09",v:50000},
+    {k:"Dev. Préstamo TC Estudio 21/09",v:50000},
+    {k:"Dev. Préstamo TC Estudio 25/09",v:50000},
     {k:"Nómina LaLiga agosto (26/08)",v:158036},
     {k:"Nómina LaLiga septiembre (26/09)",v:157673},
-    {k:"Transferencia de Marta Coiduras (14/09)",v:5000},
-    {k:"Reembolso Segurcaixa Adeslas — Diego",v:714}
+    {k:"Nómina LaLiga octubre (28/10)",v:157574},
+    {k:"Transferencia de Marta Coiduras",v:5000}
   ],
   top_car:[
     {k:"Transf. a Ideas del Sur (préstamos + capital)",v:1175000},
     {k:"Mod. 303 1T + 2T — liquidación IVA",v:461920},
     {k:"Transf. MONART SA — devolución préstamo",v:100000},
     {k:"IVA 4T 2025 fraccionado (6 plazos) ✅",v:51071},
-    {k:"Alquiler Meday Haus (acum.)",v:60000},
-    {k:"Tarjetas gastos San Telmo 1019",v:54726},
-    {k:"Tarjeta crédito JTM (acum.)",v:37056},
+    {k:"Tarjetas JTM + San Telmo 1019 + 7045",v:91782},
+    {k:"Alquiler Meday Haus (acum.)",v:66000},
     {k:"Vuelo privado Madrid-Brač",v:36950},
     {k:"Transferencias a Infovaticana",v:25000},
-    {k:"Préstamo Ideas del Sur → J. Tebas (06/08)",v:30000}
+    {k:"Préstamo Ideas del Sur → J. Tebas",v:30000},
+    {k:"Matrícula Universidad Anatoly (03/10)",v:4578}
   ]
 };
 
@@ -222,10 +218,10 @@ const lab=v=>v>=0?'+ '+eur(v):eur(v);
 const neto=D.tot_ing-D.tot_car;
 
 document.getElementById('kpis').innerHTML=[
-  {lbl:'Saldo actual 11/09',val:eur2(D.saldo_hoy),delta:'▲ vs 04/09 (95.069 €) — IVA 4T 6º plazo pagado',dcol:'var(--mut)',color:'var(--navy)'},
-  {lbl:'Saldo proyectado 30/09',val:eur2(D.saldo_30sep),delta:'Dev. TC (100k) + LaLiga sep (157k)',dcol:'var(--green)',color:'var(--green)'},
-  {lbl:'Saldo proyectado 31/10',val:eur2(D.saldo_31oct),dcol:'var(--green)',color:'var(--green)',delta:'LaLiga oct (157k) incluida'},
-  {lbl:'IVA 4T 2025',val:'✅ Liquidado',delta:'6º y último plazo — 07/09',dcol:'var(--green)'}
+  {lbl:'Saldo actual 18/09',val:eur2(D.saldo_hoy),delta:'Meday Haus oct anticipado (−6k, 17/09)',dcol:'var(--mut)',color:'var(--navy)'},
+  {lbl:'Saldo proyectado 30/09',val:eur2(D.saldo_30sep),delta:'TC (100k) + LaLiga sep (157k)',dcol:'var(--green)',color:'var(--green)'},
+  {lbl:'Saldo proyectado 31/10',val:eur2(D.saldo_31oct),delta:'LaLiga oct (157k) incluida',dcol:'var(--green)',color:'var(--green)'},
+  {lbl:'Dev. préstamo TC (sep)',val:'100.000 €',delta:'21/09 (50k) + 25/09 (50k)',dcol:'var(--navy)'}
 ].map(k=>`<div class="kpi"><div class="lbl">${k.lbl}</div><div class="val" style="${k.color?'color:'+k.color:''}">${k.val}</div><div class="delta" style="color:${k.dcol}">${k.delta}</div></div>`).join('');
 
 const meses=D.meses;let chT=null;
@@ -246,8 +242,8 @@ document.querySelectorAll('.ctrls button').forEach(b=>b.addEventListener('click'
 }));
 
 new Chart(document.getElementById('chCli'),{type:'doughnut',data:{labels:D.clientes.map(x=>x.k),datasets:[{data:D.clientes.map(x=>x.v),backgroundColor:['#7058a8','#2f4858','#3a2a68','#c8b8e8']}]},options:{plugins:{legend:{position:'bottom',labels:{font:{size:10}}}},cutout:'60%'}});
-const gT=D.gastos.slice(0,7),gR=D.gastos.slice(7).reduce((a,b)=>a+b.v,0);
-new Chart(document.getElementById('chGto'),{type:'doughnut',data:{labels:[...gT.map(x=>x.k),'Otros'],datasets:[{data:[...gT.map(x=>x.v),gR],backgroundColor:['#a8412f','#c86828','#578a8a','#b08d3e','#4f7942','#7a5c8a','#3a2a68','#8a8170']}]},options:{plugins:{legend:{position:'bottom',labels:{font:{size:10}}}},cutout:'60%'}});
+const gT=D.gastos.slice(0,6),gR=D.gastos.slice(6).reduce((a,b)=>a+b.v,0);
+new Chart(document.getElementById('chGto'),{type:'doughnut',data:{labels:[...gT.map(x=>x.k),'Otros'],datasets:[{data:[...gT.map(x=>x.v),gR],backgroundColor:['#a8412f','#c86828','#578a8a','#b08d3e','#4f7942','#3a2a68','#8a8170']}]},options:{plugins:{legend:{position:'bottom',labels:{font:{size:10}}}},cutout:'60%'}});
 
 const mx_i=D.top_ing[0].v;
 document.getElementById('topIng').innerHTML=D.top_ing.map(g=>`<div class="rowbar"><div class="l"><b>${g.k}</b><span>${eur(g.v)}</span></div><div class="bar"><i style="width:${(g.v/mx_i*100).toFixed(0)}%;background:#7058a8"></i></div></div>`).join('');
@@ -255,12 +251,11 @@ const mx_c=D.top_car[0].v;
 document.getElementById('topCar').innerHTML=D.top_car.map(g=>`<div class="rowbar"><div class="l"><b>${g.k}</b><span>${eur(g.v)}</span></div><div class="bar"><i style="width:${(g.v/mx_c*100).toFixed(0)}%;background:var(--red)"></i></div></div>`).join('');
 
 const sit=[
-  `Saldo actual (11/09): <b>${eur2(D.saldo_hoy)}</b>. Baja respecto al 04/09 (95.069 €) por el IVA 4T 2025 6º plazo (8.536 €, 07/09) y gastos corrientes de la semana.`,
-  `<b>✅ IVA 4T 2025 completamente liquidado</b> — 6º y último plazo pagado el 07/09 (8.536 €). Total pagado en 6 plazos: 51.071 €.`,
-  `<b>Proyección muy sólida:</b> Dev. TC Estudio (100.000 € en 14+15/09) + LaLiga sep (157.673 €, 26/09) → cierre sep <b style="color:var(--green)">${eur2(D.saldo_30sep)}</b>. LaLiga oct (157.574 €, 28/10) → cierre oct <b style="color:var(--green)">${eur2(D.saldo_31oct)}</b>.`,
-  `<b>Nuevos gastos recurrentes detectados:</b> Student Housing Belén (~1.314 €/mes desde oct) + residencia Belén Dubai. Confirmar duración y periodicidad.`,
-  `<b>Confirmar concepto:</b> De la Cruz Sastre (4.296 €, 29/09) y Marta Soriano (5.130 €, 30/10).`,
-  `Las devoluciones de TC Estudio (100.000 €) son cobros en la cuenta personal de J. Tebas pero reducen la deuda del despacho — no son ingresos nuevos. Ideas del Sur sigue siendo acreedora de J. Tebas por <b>610.000 €</b>.`
+  `Saldo actual (18/09): <b>${eur2(D.saldo_hoy)}</b>. La semana ha sido de gastos corrientes — destaca el anticipo de Meday Haus octubre (6.000 €, 17/09).`,
+  `<b>Semana del 21/09 — tres entradas clave:</b> Dev. Préstamo TC 1ª (+50.000 €, 21/09) · Dev. Préstamo TC 2ª (+50.000 €, 25/09) · Nómina LaLiga sep (+157.673 €, 26/09). Cierre sep: <b style="color:var(--green)">${eur2(D.saldo_30sep)}</b>.`,
+  `<b>Octubre muy sólido:</b> nómina LaLiga oct (+157.574 €, 28/10). Gastos principales: Meday Haus refacturación (9.861 €) + matrícula Anatoly (4.578 €) + Student Housing Belén (1.314 €, nuevo recurrente) + tarjeta JTM. Cierre oct: <b style="color:var(--green)">${eur2(D.saldo_31oct)}</b>.`,
+  `<b>Confirmar concepto:</b> De la Cruz Sastre (4.296 €, 29/09) y Marta Soriano (5.130 €, 30/10). Taller en Dubai (960 €, 24/09): gastos piso Dubai.`,
+  `Las devoluciones de TC Estudio (100.000 €) son cobros en cuenta personal que reducen la deuda del despacho con J. Tebas — no son ingresos nuevos. Ideas del Sur sigue siendo acreedora de J. Tebas por <b>610.000 €</b>.`
 ];
 document.getElementById('situacion').innerHTML=sit.map(s=>`<li style="margin-bottom:4px">${s}</li>`).join('');
 </script>
