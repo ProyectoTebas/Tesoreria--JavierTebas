@@ -74,7 +74,7 @@ Los cargos salen en este orden:<br>
 &nbsp;&nbsp;· Players Renting (2.239 €) → Inversiones infantiles (705 €) → San Telmo 1019 (116 €) → Nueva Mutua (132 €) → Gas (178 €) → Natación ×2 (690 €) → San Telmo (82 €) → Anatoly (200 €) → Roberto Bourdet (733 €) → saldo: <b>7.423 €</b><br>
 &nbsp;&nbsp;· <b>Tarjeta crédito JTM — 9.000 €</b> → saldo: <b style="color:#c0392b">−1.577 € 🔴 primer descubierto</b><br>
 &nbsp;&nbsp;· <b>IVA 2T 2026 — 48.951 €</b> → saldo final: <b style="color:#c0392b">−50.528 € 🔴</b><br><br>
-<b>Para no entrar en descubierto en ningún momento del 05/10 se necesitan al menos 1.578 € antes de la tarjeta JTM, o 50.528 € para cubrir el cierre del día.</b>
+<b>Para no entrar en descubierto en ningún momento del 05/10 se necesitan al menos 1.578 € antes de la tarjeta JTM, o 54.555 € para cubrir el cierre del día (incluida Universidad Belén 4.000 €).</b>
 </div>
 <div class="highlight">✅ <b>Nómina LaLiga septiembre cobrada el 25/09 — 158.086 €.</b> Las 3 devoluciones del préstamo de TC Estudio recibidas (50k×3 = 150.000 €, 21+22+23/09) y reinyectadas inmediatamente a Ideas del Sur como ampliación de capital.</div>
 <div class="alert-amber">🔔 <b>Transferencia a Ideas del Sur 25/09 — 245.000 €</b> (ampliación de capital). Movimiento extraordinario. Junto con las 3 devoluciones TC (150k), el total inyectado en septiembre a Ideas del Sur es <b>395.000 €</b>.</div>
@@ -102,7 +102,7 @@ Los cargos salen en este orden:<br>
       <tr style="background:#fdecea"><td colspan="5" style="font-family:'Segoe UI',sans-serif;font-size:11.5px;color:#5a1a0a;padding:8px 10px"><b>⚠️ El descubierto empieza con la tarjeta JTM (9.000 €) — saldo −1.577 €. Para no superar el límite el 28/10 (nómina LaLiga recupera) se necesitan al menos 1.578 € antes del 05/10, o 50.528 € para cerrar el día en cero.</b></td></tr>
       <tr><td>06–17/10</td><td>Gastos corrientes (Telefónica, Canal Isabel II, Anatoly…)</td><td style="text-align:right;color:var(--green)">+431 €</td><td style="text-align:right;color:var(--red)">−3.865 €</td><td style="text-align:right;color:var(--red)">−53.963 €</td></tr>
       <tr class="proj-iva"><td>20/10</td><td>🔴 <b>IVA 3T 2026 (Mod. 303)</b></td><td></td><td style="text-align:right;color:var(--red)"><b>−114.694 €</b></td><td style="text-align:right;color:var(--red)">−168.877 €</td></tr>
-      <tr class="proj-nomina"><td>28/10</td><td>✅ <b>Nómina LaLiga octubre</b> (LaLiga Group + Liga Fútbol)</td><td style="text-align:right;color:var(--green)">+157.174 €</td><td></td><td style="text-align:right;color:var(--green)">−12.119 €</td></tr>
+      <tr class="proj-nomina"><td>28/10</td><td>✅ <b>Nómina LaLiga octubre</b> (LaLiga Group + Liga Fútbol)</td><td style="text-align:right;color:var(--green)">+157.174 €</td><td></td><td style="text-align:right;color:var(--red)">−16.146 €</td></tr>
       <tr><td>29–31/10</td><td>Marta Soriano (5.130 €) + Ideas del Sur alquileres + nóminas doméstico + SS</td><td></td><td style="text-align:right;color:var(--red)">−23.073 €</td><td style="text-align:right;color:var(--red)">−35.192 €</td></tr>
       <tr class="proj-cierre"><td colspan="4">📅 Cierre octubre</td><td style="text-align:right;color:var(--red)"><b>−30.449 €</b></td></tr>
 
@@ -158,7 +158,8 @@ Los cargos salen en este orden:<br>
       <tr><td>30/09</td><td>SS autónomos + Colegio FESB Sagrado Corazón (x2) + comisiones</td><td></td><td class="num neg">2.099,44</td></tr>
       <tr><td>01/10</td><td>Nóminas doméstico (Alfredo, Benigno, Grace) + recibos TC + Mutualidad</td><td></td><td class="num neg">6.687,98</td></tr>
       <tr><td>02/10</td><td>Student Housing Belén (1.314 €) + Marta Coiduras (1.500 €) + ICAM</td><td></td><td class="num neg">2.907,68</td></tr>
-      <tr style="font-weight:700;background:#ebe8f4"><td colspan="2">TOTALES PERÍODO</td><td class="num pos">357.086,31</td><td class="num neg">418.156,18</td></tr>
+      <tr class="hl-amber"><td>05/10</td><td>Middlesex Associates — <b>Universidad Belén</b> (previsto) <span class="tag tag-amber">nuevo</span></td><td></td><td class="num neg">4.000,00</td></tr>
+      <tr style="font-weight:700;background:#ebe8f4"><td colspan="2">TOTALES PERÍODO</td><td class="num pos">357.086,31</td><td class="num neg">422.183,18</td></tr>
     </tbody>
   </table>
 </div>
@@ -177,7 +178,7 @@ Los cargos salen en este orden:<br>
 <script>
 const D={
   saldo_hoy:12499.02,
-  saldo_31oct:-30449,
+  saldo_31oct:-39219,
   saldo_30nov:-47209,
   saldo_31dic:45409,
   tot_ing:3285896.43, tot_car:3378597.95, n_mov:1029,
@@ -252,7 +253,7 @@ document.getElementById('kpis').innerHTML=[
   {lbl:'Total pagos 2026',val:eur(D.tot_car),delta:'Incl. 395k a Ideas del Sur sep + IVA 3T (115k)',dcol:'var(--red)'},
   {lbl:'Resultado neto',val:lab(neto),delta:'Pagos extraordinarios a Ideas del Sur dominan el resultado',dcol:'var(--red)',color:col(neto)},
   {lbl:'Saldo actual 02/10',val:eur2(D.saldo_hoy),delta:'Tras nómina LaLiga sep y ampliación capital Ideas del Sur',dcol:'var(--navy)',color:'var(--navy)'},
-  {lbl:'Cierre octubre',val:eur(-30449),delta:'IVA 3T (−115k, 20/10) recuperado por LaLiga oct (28/10)',dcol:'var(--red)',color:'var(--red)'},
+  {lbl:'Cierre octubre',val:eur(-39219),delta:'IVA 3T (−115k, 20/10) recuperado por LaLiga oct (28/10)',dcol:'var(--red)',color:'var(--red)'},
   {lbl:'Cierre diciembre',val:eur(D.saldo_31dic),delta:'LaLiga dic (169k, 23/12) cierra el año en positivo',dcol:'var(--green)',color:'var(--green)'}
 ].map(k=>`<div class="kpi"><div class="lbl">${k.lbl}</div><div class="val" style="${k.color?'color:'+k.color:''}">${k.val}</div><div class="delta" style="color:${k.dcol}">${k.delta}</div></div>`).join('');
 
