@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TC Estudio — Tesorería Consolidada hasta fin noviembre 2026</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<style>
+:root{--bg:#f6f0e4;--card:#fffdf7;--ink:#33302a;--mut:#8a8170;--green:#4f7942;--red:#a8412f;--gold:#b08d3e;--navy:#2f4858;--border:#e6dcc6}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:'Segoe UI',sans-serif;padding:20px;max-width:980px;margin:auto}
+.hd{border-bottom:3px solid var(--gold);padding-bottom:12px;margin-bottom:18px}
+.firm{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);font-weight:700}
+h1{font-size:22px;margin:4px 0 2px;font-weight:700;font-family:Georgia,serif}
+.sub{color:var(--mut);font-size:12px}
+h2{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--navy);margin:22px 0 10px;border-left:3px solid var(--gold);padding-left:9px}
+.esc-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px}
+.esc{border-radius:10px;padding:20px}
+.esc-a{background:#fdecea;border:2px solid #c0392b}
+.esc-b{background:#fff3e0;border:2px solid #e67e22}
+.esc .label{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px}
+.esc .saldo-big{font-size:34px;font-weight:800;font-family:Georgia,serif;line-height:1.1;margin:4px 0 10px}
+.esc .rows{border-top:1px solid rgba(0,0,0,0.1);padding-top:10px}
+.esc .row{display:flex;justify-content:space-between;padding:5px 0;font-size:13px;border-bottom:1px solid rgba(0,0,0,0.07)}
+.esc .row:last-child{border-bottom:none;font-weight:700;font-size:14px;padding-top:8px}
+.esc .alerta{margin-top:12px;padding:10px 12px;border-radius:7px;font-size:13px;font-weight:700;text-align:center}
+.al-red{background:#c0392b;color:#fff}
+.al-amber{background:#d35400;color:#fff}
+.nota{padding:11px 14px;border-radius:7px;margin:10px 0;font-size:12.5px;line-height:1.7}
+.n-red{background:#fdecea;border-left:4px solid #c0392b;color:#5a1a0a}
+.n-amber{background:#fff3e0;border-left:4px solid #e67e22;color:#5a3808}
+.n-gold{background:#f3ead4;border-left:4px solid var(--gold);color:#5a4a2a}
+.chart-card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:16px;margin-bottom:20px;box-shadow:0 1px 4px rgba(90,70,30,.07)}
+canvas{max-height:300px}
+.impuestos{width:100%;border-collapse:collapse;font-size:12.5px;background:var(--card);border-radius:8px;overflow:hidden;border:1px solid var(--border);margin-bottom:16px;box-shadow:0 1px 3px rgba(90,70,30,.06)}
+.impuestos th{background:var(--navy);color:#fff;padding:8px 12px;font-size:10px;text-transform:uppercase;letter-spacing:.05em}
+.impuestos th.r{text-align:right}
+.impuestos td{padding:7px 12px;border-bottom:1px solid #efe7d4}
+.impuestos tr:last-child td{border-bottom:none;font-weight:700;background:#fdecea}
+.impuestos .r{text-align:right;font-variant-numeric:tabular-nums}
+.impuestos .iva303{background:#fff0f0;font-weight:600}
+.cf{width:100%;border-collapse:collapse;font-size:12px;background:var(--card);border-radius:10px;overflow:hidden;border:1px solid var(--border);box-shadow:0 1px 4px rgba(90,70,30,.07);margin-bottom:16px}
+.cf th{background:var(--navy);color:#fff;padding:8px 11px;font-size:10px;text-transform:uppercase;letter-spacing:.05em}
+.cf th.r{text-align:right}
+.cf td{padding:7px 11px;border-bottom:1px solid #efe7d4;vertical-align:top}
+.cf tr:last-child td{border-bottom:none}
+.cf .r{text-align:right;font-variant-numeric:tabular-nums;font-weight:600}
+.cf .mes{background:#e8eef4;font-weight:700;font-size:10px;text-transform:uppercase;color:var(--navy);letter-spacing:.05em}
+.cf .cierre{background:#e8eef4;font-weight:800;font-size:13px}
+.cf .critico{background:#fff8ee}
+.cf .cobro{background:#f0faf0}
+.cf .cierre-final{font-weight:800;font-size:13px}
+.ok{color:#4f7942} .ko{color:#a8412f}
+@media(max-width:650px){.esc-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<div class="hd">
+  <div class="firm">Tebas Coiduras · Estudio Jurídico — Tesorería Consolidada</div>
+  <h1>Cashflow hasta fin de noviembre 2026</h1>
+  <div class="sub">Pestaña TESORERIA (todos los bancos) · <b>Límite crédito consolidado: −90.000 €</b> · Corte 20/10/2026 · 🟢 dentro límite · 🔴 excede límite</div>
+</div>
+
+<div class="esc-grid">
+  <div class="esc esc-a">
+    <div class="label" style="color:#c0392b">🔴 Escenario A — Con IVA Mod. 303 pagado</div>
+    <div style="font-size:12px;color:#888;margin-bottom:2px">Situación real hoy 20/10 — ya en el límite</div>
+    <div class="saldo-big" style="color:#a8412f">−90.505 €</div>
+    <div class="rows">
+      <div class="row"><span>Exceso sobre límite hoy</span><span style="color:#c0392b">+505 € 🔴</span></div>
+      <div class="row"><span>Cierre octubre</span><span style="color:#c0392b">−102.140 € 🔴</span></div>
+      <div class="row"><span>05/11 — nóminas + IVA 1T + tarjetas</span><span style="color:#c0392b">−126.756 € 🔴</span></div>
+      <div class="row"><span>20/11 — MOD 303 IVA 2T (23.800 €)</span><span style="color:#c0392b">−158.301 € 🔴</span></div>
+      <div class="row"><span>Cierre noviembre</span><span style="color:#c0392b"><b>−168.663 €</b></span></div>
+      <div class="row"><span>🔴 Exceso sobre límite (−90k)</span><span style="color:#c0392b"><b>+78.663 €</b></span></div>
+    </div>
+    <div class="alerta al-red">Necesario inyectar: <b>78.663 €</b></div>
+  </div>
+  <div class="esc esc-b">
+    <div class="label" style="color:#d35400">🟡 Escenario B — Sin IVA Mod. 303</div>
+    <div style="font-size:12px;color:#888;margin-bottom:2px">Hipotético sin los 33.382 € del 303</div>
+    <div class="saldo-big" style="color:#4f7942">−57.123 €</div>
+    <div class="rows">
+      <div class="row"><span>Margen sobre límite hoy</span><span style="color:#4f7942">32.877 € 🟢</span></div>
+      <div class="row"><span>Cierre octubre</span><span style="color:#4f7942">−68.758 € 🟢</span></div>
+      <div class="row"><span>05/11 — nóminas + IVA 1T + tarjetas</span><span style="color:#c0392b">−93.374 € 🔴</span></div>
+      <div class="row"><span>20/11 — MOD 303 IVA 2T (23.800 €)</span><span style="color:#c0392b">−124.919 € 🔴</span></div>
+      <div class="row"><span>Cierre noviembre</span><span style="color:#c0392b"><b>−135.282 €</b></span></div>
+      <div class="row"><span>🔴 Exceso sobre límite (−90k)</span><span style="color:#c0392b"><b>+45.282 €</b></span></div>
+    </div>
+    <div class="alerta al-amber">Necesario inyectar: <b>45.282 €</b></div>
+  </div>
+</div>
+
+<div class="nota n-gold">
+  <b>Diferencia entre escenarios: 33.382 € = el IVA Mod. 303.</b> Sin el 303, hoy el saldo estaría dentro del límite (−57.123 €, margen 32.877 €) y octubre también cerraría dentro. Las nóminas del 03/11 llevan el saldo de −58.119 € a −76.747 € en Escenario B — aún dentro del límite — pero el 05/11 (IVA 1T + tarjetas) lo supera por primera vez (−93.374 €).
+</div>
+
+<h2>Impuestos pagados hoy 20/10</h2>
+<table class="impuestos">
+  <thead><tr><th>Modelo / Concepto</th><th class="r">Importe</th></tr></thead>
+  <tbody>
+    <tr class="iva303"><td><b>Mod. 303 — Liquidación IVA 3T</b></td><td class="r ko"><b>33.381,58 €</b></td></tr>
+    <tr><td>Mod. 111 — Retenciones IRPF trabajadores 3T</td><td class="r ko">12.817,60 €</td></tr>
+    <tr><td>IVA retenido Javier Tebas Llanas 3T</td><td class="r ko">4.200,00 €</td></tr>
+    <tr><td>Mod. 115 — Retenciones IRPF alquileres 3T</td><td class="r ko">2.294,29 €</td></tr>
+    <tr><td>Mod. 202 — 2º pago fraccionado IS</td><td class="r ko">1.351,26 €</td></tr>
+    <tr><td>Fra. Navarro y Urbano SL — servicios sep</td><td class="r ko">2.299,00 €</td></tr>
+    <tr><td>Esofitec Global Solutions SL</td><td class="r ko">429,55 €</td></tr>
+    <tr><td>Aquaservice</td><td class="r ko">70,91 €</td></tr>
+    <tr><td>TOTAL SALIDAS 20/10</td><td class="r ko"><b>56.844,19 €</b></td></tr>
+  </tbody>
+</table>
+
+<h2>Evolución del saldo — 🟢 dentro límite · 🔴 excede límite</h2>
+<div class="chart-card"><canvas id="chComp"></canvas></div>
+
+<h2>Cashflow detallado — 🟢 dentro límite (−90k) · 🔴 excede límite</h2>
+<table class="cf">
+  <thead>
+    <tr>
+      <th>Fecha</th><th>Concepto</th>
+      <th class="r">Ingreso</th><th class="r">Cargo</th>
+      <th class="r">Esc. A — con 303</th>
+      <th class="r">Esc. B — sin 303</th>
+    </tr>
+  </thead>
+  <tbody id="cfBody"></tbody>
+</table>
+
+<div class="nota n-red">🔴 <b>Escenario A (real):</b> necesario inyectar <b>78.663 €</b> para no superar el límite consolidado de −90.000 € a fin de noviembre.</div>
+<div class="nota n-amber">🟡 <b>Escenario B (sin 303):</b> sin el IVA 303, octubre cierra dentro del límite (−68.758 €). El 05/11 (IVA 1T + tarjetas + nóminas) supera el límite por primera vez (−93.374 €). Necesario inyectar <b>45.282 €</b>.</div>
+
+<script>
+const LIMITE = -90000;
+const eur = v => new Intl.NumberFormat('es-ES',{style:'currency',currency:'EUR',maximumFractionDigits:0}).format(v);
+const sc = v => v < LIMITE
+  ? `<span class="ko">${eur(v)} 🔴</span>`
+  : `<span class="ok">${eur(v)} 🟢</span>`;
+
+const rows = [
+  {tipo:'inicio', concepto:'Saldo consolidado 20/10 — todos los bancos (tras impuestos 3T)', sA:-90505, sB:-57123},
+  {tipo:'mes', concepto:'OCTUBRE — RESTO'},
+  {tipo:'cobro', fecha:'23/10', concepto:'Remesa Fra. Leal Collection (+4.420 €) − Procurador Eduardo (−2.361 €)', ing:4420, car:2361, sA:-88445, sB:-55064},
+  {tipo:'normal', fecha:'28–29/10', concepto:'Telefónica + Limcon limpieza AC', ing:0, car:777, sA:-89223, sB:-55841},
+  {tipo:'critico', fecha:'30/10', concepto:'SS Huesca (4.327 €) + SS Madrid (4.690 €) + Alq. despacho Madrid-Ideas del Sur (3.091 €) + CAI (210 €)', ing:0, car:12318, sA:-101541, sB:-68159},
+  {tipo:'normal', fecha:'31/10', concepto:'Nóminas externas Benigno + Grace', ing:0, car:599, sA:-102140, sB:-68758},
+  {tipo:'cierre', concepto:'📅 CIERRE OCTUBRE', sA:-102140, sB:-68758},
+  {tipo:'mes', concepto:'NOVIEMBRE 2026'},
+  {tipo:'cobro', fecha:'01/11', concepto:'Remesas igualas (+18.000) + Godafoss (+303) − Seguro RC (643) − Alq. Huesca (1.040) − Alq. Madrid Ideas (3.033) − Esofitec (1.163) − Diego nov (1.802)', ing:18303, car:6638, sA:-91500, sB:-58119},
+  {tipo:'critico', fecha:'03/11', concepto:'Nóminas todo el personal: Susana, Sara, Sergio, Hugo (+Bonus), Adil, Teresa, María, Jisela, Beatriz', ing:0, car:18561, sA:-110129, sB:-76747},
+  {tipo:'critico', fecha:'04/11', concepto:'Nómina Antonio Chocarro (2.730 €) + Computer Huesca (1.358 €)', ing:0, car:4088, sA:-114217, sB:-80835},
+  {tipo:'critico', fecha:'05/11', concepto:'Remesas (+7.414) − 5º Pago IVA 1T (5.017) − Navarro y Urbano oct (3.630) − Tarjetas despacho (4.124) − Vuelos Lucio (1.800) − JTL tarjeta (1.146) − IVA 2021 reclasif. (4.063)', ing:7414, car:19780, sA:-126756, sB:-93374},
+  {tipo:'normal', fecha:'06–13/11', concepto:'Limpiezas VAL + Registradores (921) + Copiadoras (427) + Contables (2.632)', ing:0, car:4629, sA:-131664, sB:-98283},
+  {tipo:'cobro', fecha:'14–17/11', concepto:'Remesas cobros (+2.362 €) − Endesa (289 €)', ing:2362, car:289, sA:-130011, sB:-96629},
+  {tipo:'normal', fecha:'18–19/11', concepto:'Desinfecciones Unión (394) + Chocarro Abogados oct (3.630) + Telefónica (465)', ing:0, car:4489, sA:-134500, sB:-101119},
+  {tipo:'critico', fecha:'20/11', concepto:'🔴 MOD 303 — IVA 2T 2026', ing:0, car:23800, sA:-158301, sB:-124919},
+  {tipo:'normal', fecha:'21/11', concepto:'Esofitec A3bank+Scan+Cloud (661) + Esofitec (410) + Revista 4Esquinas (2.118)', ing:0, car:3189, sA:-161653, sB:-128271},
+  {tipo:'cobro', fecha:'25–27/11', concepto:'Remesa cuotas (+4.591) + remesas (+940) − Alq. AC Ideas (3.031) − Alq. Huesca (1.040)', ing:5531, car:4071, sA:-159298, sB:-125916},
+  {tipo:'critico', fecha:'28/11', concepto:'SS Huesca (4.300) + SS Madrid (3.459) + Chocarro incentivos (832)', ing:0, car:8591, sA:-168244, sB:-134862},
+  {tipo:'normal', fecha:'29/11', concepto:'Limcon limpieza AC (419 €)', ing:0, car:419, sA:-168663, sB:-135282},
+  {tipo:'cierre-a', concepto:'📅 CIERRE NOVIEMBRE — Escenario A (con 303)', sA:-168663, exceso:78663},
+  {tipo:'cierre-b', concepto:'📅 CIERRE NOVIEMBRE — Escenario B (sin 303)', sB:-135282, exceso:45282},
+];
+
+const tbody = document.getElementById('cfBody');
+rows.forEach(r => {
+  const tr = document.createElement('tr');
+  if(r.tipo === 'mes'){
+    tr.className = 'mes';
+    tr.innerHTML = `<td colspan="6">${r.concepto}</td>`;
+  } else if(r.tipo === 'inicio'){
+    tr.innerHTML = `<td colspan="4"><b>${r.concepto}</b></td><td class="r">${sc(r.sA)}</td><td class="r">${sc(r.sB)}</td>`;
+  } else if(r.tipo === 'cierre'){
+    tr.className = 'cierre';
+    tr.innerHTML = `<td colspan="4">${r.concepto}</td><td class="r">${sc(r.sA)}</td><td class="r">${sc(r.sB)}</td>`;
+  } else if(r.tipo === 'cierre-a'){
+    tr.className = 'cierre-final';
+    tr.style.background = '#fdecea';
+    tr.innerHTML = `<td colspan="4">${r.concepto}</td><td class="r ko" colspan="2" style="font-size:14px"><b>${eur(r.sA)}</b> 🔴 Exceso: <b>+${eur(r.exceso)}</b></td>`;
+  } else if(r.tipo === 'cierre-b'){
+    tr.className = 'cierre-final';
+    tr.style.background = '#fff3e0';
+    tr.innerHTML = `<td colspan="4">${r.concepto}</td><td class="r ko" colspan="2" style="font-size:14px"><b>${eur(r.sB)}</b> 🔴 Exceso: <b>+${eur(r.exceso)}</b></td>`;
+  } else {
+    if(r.tipo === 'cobro') tr.className = 'cobro';
+    if(r.tipo === 'critico') tr.className = 'critico';
+    const ingS = r.ing > 0 ? `<span class="ok">+${eur(r.ing)}</span>` : '';
+    const carS = r.car > 0 ? `<span class="ko">−${eur(r.car)}</span>` : '';
+    tr.innerHTML = `<td>${r.fecha||''}</td><td>${r.concepto}</td><td class="r">${ingS}</td><td class="r">${carS}</td><td class="r">${sc(r.sA)}</td><td class="r">${sc(r.sB)}</td>`;
+  }
+  tbody.appendChild(tr);
+});
+
+// Gráfico
+const labels = ['20/10','23/10','29/10','30/10','31/10','01/11','03/11','05/11','13/11','17/11','19/11','20/11\n🔴MOD303','25/11','28/11','29/11'];
+const sA = [-90505,-88445,-89223,-101541,-102140,-91500,-110129,-126756,-131664,-130011,-134500,-158301,-159298,-168244,-168663];
+const sB = [-57123,-55064,-55841,-68159,-68758,-58119,-76747,-93374,-98283,-96629,-101119,-124919,-125916,-134862,-135282];
+
+const limPlugin = {id:'lim', afterDraw(c){
+  const{ctx, chartArea:{left,right,bottom}, scales:{y}} = c;
+  const yL = y.getPixelForValue(LIMITE);
+  ctx.save();
+  ctx.fillStyle='rgba(168,65,47,0.05)';ctx.fillRect(left,yL,right-left,bottom-yL);
+  ctx.strokeStyle='#c0392b';ctx.lineWidth=2.5;ctx.setLineDash([7,4]);
+  ctx.beginPath();ctx.moveTo(left,yL);ctx.lineTo(right,yL);ctx.stroke();
+  ctx.setLineDash([]);
+  ctx.fillStyle='#c0392b';ctx.font='bold 11px Segoe UI';
+  ctx.fillText('Límite crédito consolidado  −90.000 €',left+8,yL-6);
+  ctx.restore();
+}};
+
+new Chart(document.getElementById('chComp'),{
+  type:'line', plugins:[limPlugin],
+  data:{labels, datasets:[
+    {label:'Con IVA 303 — Escenario A', data:sA,
+     borderColor:'#a8412f', backgroundColor:'rgba(168,65,47,0.07)',
+     borderWidth:2.5,
+     pointRadius: sA.map((v,i)=> i===11 ? 7 : 4),
+     pointBackgroundColor: sA.map(v => v < LIMITE ? '#a8412f' : '#4f7942'),
+     tension:0.3, fill:true},
+    {label:'Sin IVA 303 — Escenario B', data:sB,
+     borderColor:'#e67e22', backgroundColor:'rgba(230,126,34,0.06)',
+     borderWidth:2.5,
+     pointRadius: sB.map((v,i)=> i===11 ? 7 : 4),
+     pointBackgroundColor: sB.map(v => v < LIMITE ? '#a8412f' : '#4f7942'),
+     tension:0.3, fill:true}
+  ]},
+  options:{responsive:true,
+    plugins:{
+      legend:{position:'bottom',labels:{font:{size:12},padding:16}},
+      tooltip:{callbacks:{label:c=>`${c.dataset.label}: ${eur(c.raw)}`}}
+    },
+    scales:{
+      x:{ticks:{font:{size:9},maxRotation:0},grid:{display:false}},
+      y:{ticks:{callback:v=>eur(v),font:{size:10}},
+         grid:{color:'rgba(0,0,0,0.04)'},
+         suggestedMin:-185000, suggestedMax:-40000}
+    }
+  }
+});
+</script>
+</body>
+</html>
