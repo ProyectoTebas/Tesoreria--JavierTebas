@@ -20,7 +20,6 @@ h2{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--navy
 .kpi .val{font-size:21px;font-weight:600;margin-top:4px}
 .kpi .delta{font-size:10.5px;margin-top:2px;font-family:'Segoe UI',sans-serif}
 .grid2{display:grid;grid-template-columns:1.6fr 1fr;gap:14px}
-.grid11{display:grid;grid-template-columns:1fr 1fr;gap:14px}
 .card{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:15px;box-shadow:var(--shadow)}
 .card h3{margin:0 0 10px;font-size:13.5px;color:var(--navy);font-weight:600}
 .tbl{width:100%;border-collapse:collapse;font-size:12px}
@@ -34,95 +33,50 @@ h2{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--navy
 .boxes{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-top:12px}
 .box{background:var(--paper);border:1px solid var(--border);border-radius:7px;padding:10px 13px;display:flex;justify-content:space-between;align-items:center}
 .box .t{font-size:12.5px} .box .v{font-weight:600;font-variant-numeric:tabular-nums;font-family:'Segoe UI',sans-serif}
-.alert-red{font-size:11.5px;color:#5a1a0a;background:#fdecea;border-left:3px solid #c0392b;padding:9px 12px;border-radius:5px;margin:10px 0;font-family:'Segoe UI',sans-serif}
-.alert-amber{font-size:11.5px;color:#5a3808;background:#fff3e0;border-left:3px solid #e67e22;padding:9px 12px;border-radius:5px;margin:10px 0;font-family:'Segoe UI',sans-serif}
-.alert-green{font-size:11.5px;color:#1a4a1a;background:#e8f5e9;border-left:3px solid #4f7942;padding:9px 12px;border-radius:5px;margin:10px 0;font-family:'Segoe UI',sans-serif}
-.note{font-size:11.5px;color:#6b5f44;background:#f3ead4;border-left:3px solid var(--gold);padding:9px 12px;border-radius:5px;margin:10px 0;font-family:'Segoe UI',sans-serif}
+.alert-red{font-size:11.5px;color:#5a1a0a;background:#fdecea;border-left:3px solid #c0392b;padding:9px 12px;border-radius:5px;margin:10px 0;font-family:'Segoe UI',sans-serif;line-height:1.55}
+.alert-amber{font-size:11.5px;color:#5a3808;background:#fff3e0;border-left:3px solid #e67e22;padding:9px 12px;border-radius:5px;margin:10px 0;font-family:'Segoe UI',sans-serif;line-height:1.55}
+.alert-green{font-size:11.5px;color:#1a4a1a;background:#e8f5e9;border-left:3px solid #4f7942;padding:9px 12px;border-radius:5px;margin:10px 0;font-family:'Segoe UI',sans-serif;line-height:1.55}
+.note{font-size:11.5px;color:#6b5f44;background:#f3ead4;border-left:3px solid var(--gold);padding:9px 12px;border-radius:5px;margin:10px 0;font-family:'Segoe UI',sans-serif;line-height:1.55}
 .ctrls{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:11px}
 .ctrls button{background:var(--paper);color:var(--navy);border:1px solid var(--border);border-radius:6px;padding:5px 12px;font-size:12px;cursor:pointer;font-family:'Segoe UI',sans-serif}
 .ctrls button.on{background:var(--navy);color:#fbf7ee;border-color:var(--navy)}
 .rowbar{margin:6px 0;font-family:'Segoe UI',sans-serif}
-.rowbar .l{display:flex;justify-content:space-between;font-size:12px;margin-bottom:2px}
+.rowbar .l{display:flex;justify-content:space-between;gap:8px;font-size:12px;margin-bottom:2px}
 .rowbar .l b{font-weight:600}
 .scrollbox{max-height:300px;overflow-y:auto;padding-right:5px}
-.scrollbox::-webkit-scrollbar{width:6px}.scrollbox::-webkit-scrollbar-thumb{background:#d8cdb4;border-radius:3px}
-canvas{max-height:240px}
+canvas{max-height:260px}
 .sec{margin-top:14px}
 .tag{display:inline-block;font-size:9px;font-weight:700;color:#fff;border-radius:3px;padding:1px 5px;margin-left:4px;font-family:'Segoe UI',sans-serif;vertical-align:middle}
-.tag-in{background:var(--green)} .tag-out{background:var(--red)} .tag-amber{background:#e67e22} .tag-info{background:#2f4858}
+.tag-in{background:var(--green)} .tag-out{background:var(--red)} .tag-amber{background:#e67e22}
 .hl-green{background:#f0faf0} .hl-red{background:#fff0f0} .hl-amber{background:#fff8ee}
-@media(max-width:820px){.kpis,.grid11{grid-template-columns:repeat(2,1fr)}.grid2{grid-template-columns:1fr}.boxes{grid-template-columns:1fr}}
+.proj th{background:var(--navy);color:#fff;padding:7px 10px;text-align:left;font-size:10px;text-transform:uppercase;letter-spacing:.05em;font-family:'Segoe UI',sans-serif}
+.proj td{padding:6px 10px;border-bottom:1px solid var(--border);font-family:'Segoe UI',sans-serif;font-size:12px}
+.mes td{background:#e8eef4;font-weight:700;font-size:10px;text-transform:uppercase;color:var(--navy)}
+.cierre td{background:#f0f4ff;font-weight:700}
+@media(max-width:820px){.kpis{grid-template-columns:repeat(2,1fr)}.grid2{grid-template-columns:1fr}.boxes{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
 <div class="hd">
  <div class="firm">Javier Tebas Medrano</div>
  <h1>Informe de Tesorería · Ejercicio 2026</h1>
- <div class="sub">Banco Sabadell · <b>Actualizado 23/10/2026</b> · Datos directos del Excel</div>
+ <div class="sub">Banco Sabadell · <b>Actualizado 30/10/2026</b> · Datos directos del Excel</div>
 </div>
 
 <div class="kpis" id="kpis"></div>
+<div id="alertas"></div>
 
-<div class="alert-amber">⚠️ <b>Saldo actual −24.912 €</b> — pendiente de recibir LaLiga octubre (+157.573 €, previsto 28/10). Tras el cobro el saldo pasará a ~+132.661 €.</div>
-<div class="alert-green">✅ <b>Cierre noviembre: +101.456 €</b> — LaLiga noviembre (+158.089 €, prev. 25/11) cubre con holgura los gastos del mes (48.089 €). Posición sólida.</div>
-<div class="alert-green">✅ <b>Cierre diciembre: +195.064 €</b> — LaLiga diciembre (+170.917 €, prev. 23/12) + cierre anual favorable.</div>
-<div class="note">Semana 17–23/10: transferencias a Belén Tebas (total −5.214 €), colegios Sagrado Corazón Chamartín (−529 €), gastos San Telmo tarjeta (−397 €), cajero (−120 €). Total salidas semana: <b>−6.369 €</b>.</div>
-
-<h2>Posición cuenta Banco Sabadell · 23/10/2026</h2>
+<h2>Posición cuenta Banco Sabadell · 30/10/2026</h2>
 <div class="card">
-  <table class="tbl">
-    <thead><tr><th>Cuenta</th><th class="num">Saldo actual</th><th class="num">Próximo cobro LaLiga</th><th class="num">Saldo previsto post-LaLiga</th><th>Estado</th></tr></thead>
-    <tbody>
-      <tr class="hl-amber">
-        <td><b>Banco Sabadell</b><br><span style="font-size:11px;color:var(--mut);font-family:'Segoe UI',sans-serif">Última op 23/10 · Transf. Belén Tebas (−1.000 €)</span></td>
-        <td class="num neg" style="font-size:15px;font-weight:700">−24.911,84 €</td>
-        <td class="num pos">+157.573 € <span class="tag tag-info">28/10</span></td>
-        <td class="num pos" style="font-weight:700">+132.661 €</td>
-        <td><span class="tag tag-amber">⚠️ Pendiente LaLiga</span></td>
-      </tr>
-    </tbody>
-  </table>
-  <div class="boxes">
-    <div class="box"><span class="t">Gastos fijos mensuales</span><span class="v neg">27.063 €/mes</span></div>
-    <div class="box"><span class="t">Cobro LaLiga mensual</span><span class="v pos">~141.188 €/mes</span></div>
-    <div class="box"><span class="t">IVA 3T 2026 (20/10 pagado)</span><span class="v neg">114.694 €</span></div>
-    <div class="box"><span class="t">Margen mensual neto</span><span class="v pos">~114.125 €/mes</span></div>
-  </div>
+  <table class="tbl" id="tPos"></table>
+  <div class="boxes" id="boxes"></div>
 </div>
 
-<h2>Proyección caja hasta cierre 2026</h2>
-<div class="card">
-  <table class="tbl">
-    <thead><tr><th>Período</th><th class="num">Cobros previstos</th><th class="num">Pagos previstos</th><th class="num">Neto</th><th class="num">Saldo cierre</th><th>Estado</th></tr></thead>
-    <tbody>
-      <tr><td colspan="4"><b>Saldo actual 23/10</b></td><td class="num neg" style="font-weight:700">−24.912 €</td><td></td></tr>
-      <tr class="hl-amber">
-        <td>Octubre (resto)</td>
-        <td class="num pos">+157.573 €<br><span style="font-size:10px;color:var(--mut)">LaLiga oct 28/10</span></td>
-        <td class="num neg">−141.205 €<br><span style="font-size:10px;color:var(--mut)">IVA 3T + gastos fijos</span></td>
-        <td class="num pos">+16.368 €</td>
-        <td class="num pos" style="font-weight:700">−8.544 €</td>
-        <td><span class="tag tag-amber">⚠️</span></td>
-      </tr>
-      <tr class="hl-green">
-        <td>Noviembre</td>
-        <td class="num pos">+158.089 €<br><span style="font-size:10px;color:var(--mut)">LaLiga nov ~25/11</span></td>
-        <td class="num neg">−48.089 €<br><span style="font-size:10px;color:var(--mut)">Gastos fijos + IVA</span></td>
-        <td class="num pos">+110.000 €</td>
-        <td class="num pos" style="font-weight:700">+101.456 €</td>
-        <td><span class="tag tag-in">✅</span></td>
-      </tr>
-      <tr class="hl-green">
-        <td>Diciembre</td>
-        <td class="num pos">+170.917 €<br><span style="font-size:10px;color:var(--mut)">LaLiga dic ~23/12</span></td>
-        <td class="num neg">−77.309 €<br><span style="font-size:10px;color:var(--mut)">Gastos fijos + navidad</span></td>
-        <td class="num pos">+93.608 €</td>
-        <td class="num pos" style="font-weight:700">+195.064 €</td>
-        <td><span class="tag tag-in">✅</span></td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+<h2>Línea de tesorería — proyección de saldo</h2>
+<div class="card"><canvas id="chSaldo" style="max-height:300px"></canvas></div>
+
+<h2>Proyección de caja hasta cierre 2026</h2>
+<div class="card"><table class="tbl proj" id="tProj"></table></div>
 
 <h2>Evolución mensual cashflow 2026</h2>
 <div class="ctrls">
@@ -133,138 +87,92 @@ canvas{max-height:240px}
 <div class="card"><canvas id="chTime"></canvas></div>
 
 <div class="grid2 sec">
-  <div class="card">
-    <h3>Análisis de cobros</h3>
-    <p id="anaIng" style="font-size:12.5px;line-height:1.7;margin:0 0 12px;font-family:'Segoe UI',sans-serif"></p>
-    <div class="scrollbox"><div id="topIng"></div></div>
-  </div>
-  <div class="card">
-    <h3>Análisis de gastos</h3>
-    <p id="anaGto" style="font-size:12.5px;line-height:1.7;margin:0 0 12px;font-family:'Segoe UI',sans-serif"></p>
-    <div class="scrollbox"><div id="topCar"></div></div>
-  </div>
+  <div class="card"><h3>Análisis de cobros</h3><p id="anaIng" style="font-size:12.5px;line-height:1.7;margin:0 0 12px;font-family:'Segoe UI',sans-serif"></p><div class="scrollbox"><div id="topIng"></div></div></div>
+  <div class="card"><h3>Análisis de gastos</h3><p id="anaGto" style="font-size:12.5px;line-height:1.7;margin:0 0 12px;font-family:'Segoe UI',sans-serif"></p><div class="scrollbox"><div id="topCar"></div></div></div>
 </div>
 
 <h2>Gastos fijos mensuales · Banco Sabadell</h2>
-<div class="card">
-  <table class="tbl">
-    <thead><tr><th>Día</th><th>Concepto</th><th class="num">Importe mensual</th></tr></thead>
-    <tbody>
-      <tr><td>1</td><td>Mutualidad Abogacía C. General</td><td class="num neg">724,67 €</td></tr>
-      <tr><td>1</td><td>Alquiler Meday (Ministro Cascajo)</td><td class="num neg">3.500,00 €</td></tr>
-      <tr><td>1</td><td>Asignación mes Diego</td><td class="num neg">1.200,00 €</td></tr>
-      <tr><td>2</td><td>Recibo Tebas Estudio</td><td class="num neg">276,46 €</td></tr>
-      <tr><td>2</td><td>Transferencia pago Robert</td><td class="num neg">533,00 €</td></tr>
-      <tr><td>2</td><td>Transferencia Gustavo</td><td class="num neg">200,00 €</td></tr>
-      <tr><td>2</td><td>Telefónica España (San Telmo)</td><td class="num neg">115,60 €</td></tr>
-      <tr><td>3</td><td>Transf. a Javier Jr. (seguro)</td><td class="num neg">400,00 €</td></tr>
-      <tr><td>5</td><td>Guardería (x2)</td><td class="num neg">1.400,00 €</td></tr>
-      <tr><td>5</td><td>Alquiler Malpartida</td><td class="num neg">2.000,00 €</td></tr>
-      <tr><td>5</td><td>Obras según contrato</td><td class="num neg">700,00 €</td></tr>
-      <tr><td>6</td><td>Aportación/préstamo Tebas (BBVA)</td><td class="num neg">5.835,00 €</td></tr>
-      <tr><td>15</td><td>Colegio Velázquez</td><td class="num neg">720,00 €</td></tr>
-      <tr><td>15</td><td>Alianza Sport</td><td class="num neg">1.936,00 €</td></tr>
-      <tr><td>16</td><td>Helvetia Previsión S.A.</td><td class="num neg">211,07 €</td></tr>
-      <tr><td>28</td><td>Transferencia alquiler Belén</td><td class="num neg">1.700,00 €</td></tr>
-      <tr><td>30</td><td>Préstamo Banco Sabadell</td><td class="num neg">546,76 €</td></tr>
-      <tr><td>30</td><td>Nóminas (Yolanda + Grace + Benigno)</td><td class="num neg">3.593,33 €</td></tr>
-      <tr><td>30</td><td>Seguros sociales empleados</td><td class="num neg">1.471,42 €</td></tr>
-      <tr style="font-weight:700;background:#f3ead4"><td colspan="2">TOTAL GASTOS FIJOS MENSUALES</td><td class="num neg">27.063,31 €</td></tr>
-    </tbody>
-  </table>
-</div>
+<div class="card"><table class="tbl" id="tFijos"></table></div>
+
+<h2>Novedades 24–30/10</h2>
+<div class="card"><table class="tbl" id="tNov"></table></div>
 
 <h2>Situación · Resumen ejecutivo</h2>
 <div class="card"><ul id="situacion" style="margin:0;padding-left:18px;line-height:1.8;font-size:13.5px"></ul></div>
 
-<div class="sub" style="margin-top:18px">Informe generado · Javier Tebas Medrano · Banco Sabadell · corte 23/10/2026</div>
+<div class="sub" style="margin-top:18px">Informe generado · Javier Tebas Medrano · Banco Sabadell · corte 30/10/2026</div>
 
 <script>
-const D={
-  tot_ing:3337019.98, tot_car:3470270.95,
-  saldo:-24911.84,
-  meses:[
-    {mes:"01",ing:158477,car:169810,neto:-11333},
-    {mes:"02",ing:257970,car:96312,neto:161659},
-    {mes:"03",ing:1308623,car:1119819,neto:188804},
-    {mes:"04",ing:172950,car:417804,neto:-244854},
-    {mes:"05",ing:158498,car:90177,neto:68320},
-    {mes:"06",ing:506388,car:651281,neto:-144893},
-    {mes:"07",ing:162541,car:269709,neto:-107168},
-    {mes:"08",ing:188829,car:80898,neto:107931},
-    {mes:"09",ing:371644,car:475429,neto:-103785},
-    {mes:"10",ing:208673,car:240237,neto:-31564},
-    {mes:"11",ing:158089,car:48089,neto:110000},
-    {mes:"12",ing:170917,car:77309,neto:93608}
-  ],
-  top_ing:[
-    {k:"LaLiga · marzo (Transf. LaLiga Group International)",v:727028},
-    {k:"Devolución préstamo Ideas del Sur",v:320000},
-    {k:"LaLiga · junio (LaLiga Group International)",v:311583},
-    {k:"LaLiga · abril (Liga Nacional Fútbol Profesional)",v:141327},
-    {k:"LaLiga · febrero (LaLiga Nacional Fútbol Prof.)",v:141188},
-    {k:"LaLiga · mayo",v:141188},
-    {k:"LaLiga · julio (Transf. Liga de Fútbol)",v:141188},
-    {k:"LaLiga · agosto (Transf. Liga de Fútbol Prof.)",v:141188},
-    {k:"LaLiga · septiembre",v:141188},
-    {k:"LaLiga · octubre (prev. 28/10)",v:157573}
-  ],
-  top_car:[
-    {k:"Transf. Ideas del Sur — préstamo/capital (varios)",v:900000},
-    {k:"Mod. 303 IVA 2T (julio)",v:150000},
-    {k:"Transf. a MONART SA — dev. préstamo",v:100000},
-    {k:"Mod. 303 IVA 1T (abril)",v:311920},
-    {k:"Liquidación IVA Mod. 303 (enero)",v:67223},
-    {k:"Gastos fijos mensuales (acumulado)",v:243570},
-    {k:"Universidad Belén / Middlesex Associates",v:47721},
-    {k:"Transferencias Belén Tebas (acumulado)",v:45000},
-    {k:"Seguros mutualidad abogacía (acumulado)",v:16000},
-    {k:"Colegios (Sagrado Corazón + Velázquez, acum.)",v:25000}
-  ],
-  analisis_ing:"<b>Cobros acumulados 2026: 3.337.020 €.</b> Fuente principal: <b>LaLiga Group International / Liga Nacional de Fútbol Profesional</b> — pagos mensuales de ~141.188 € + extraordinario de marzo (727.028 €). Destaca también la <b>devolución préstamo Ideas del Sur (320.000 €, marzo)</b>. Próximo cobro: <b>LaLiga octubre +157.573 € previsto 28/10</b>.",
-  analisis_gto:"<b>Pagos acumulados 2026: 3.470.271 €.</b> Partida más relevante: <b>transferencias a Ideas del Sur (~900.000 €)</b> para préstamos y ampliación de capital. IVA Mod. 303 acumulado (1T+2T+3T): ~529.000 €. Gastos fijos mensuales: 27.063 €/mes. Universidad Belén / Middlesex Associates: 47.721 € acumulados."
-};
-
+const D={"tot_ing": 3495056.29, "tot_car": 3614461.62, "saldo": -11066.19599999961, "rows": [{"f": "01–05/11", "ing": 0.0, "car": 34899.22, "desc": "pago Fra. Farmacia Reina Madre (−11.801 €) · Tarjeta Credito Javier TM (−5.300 €) · Transferencia a Meday _ alquiler igr (−3.500 €)", "saldo": -45965.41599999962}, {"f": "06–24/11", "ing": 516.0, "car": 11892.71, "desc": "TRANSF A BRANDELICIUS SL (−2.258 €) · Players Renting Club (−2.238 €) · Transferencia Belen Tebas (−1.000 €)", "saldo": -57342.12599999962}, {"f": "25/11", "ing": 157573.07, "car": 368.71, "desc": "Transf. Liga de Futbol profesional (+140.816 €) · Transf. Liga de Futbol profesional (+16.757 €)", "saldo": 99862.23400000039}, {"f": "26–30/11", "ing": 0.0, "car": 10229.73, "desc": "Alquiler Angel Cavero_ Ideas del sur (−3.133 €) · Transferencia a Javier Tebas Llanas (−2.500 €) · Seguros sociales R.E. Autonomos (−1.412 €)", "saldo": 89632.50400000038}, {"f": "01–05/12", "ing": 0.0, "car": 31331.46, "desc": "Transferencia a Marta Soriano (−5.550 €) · Tarjeta Credito Javier TM (−3.563 €) · Alquiler Meday Haus_ Igries Diciembr (−3.500 €)", "saldo": 58301.044000000365}, {"f": "06–22/12", "ing": 20.0, "car": 11151.76, "desc": "nomina extra Grace Tingson Alagos (−1.365 €) · nomina extra Benigno Demafiles (−1.365 €) · Transf. A Student Housing- Residenci (−1.327 €)", "saldo": 47169.28400000038}, {"f": "23/12", "ing": 169489.74, "car": 0.0, "desc": "Transf Liga (+151.541 €) · Transf Liga (+17.948 €)", "saldo": 216659.02400000035}, {"f": "24–31/12", "ing": 1407.47, "car": 34826.19, "desc": "Transf.a Meday Haus_ Alquiler Benasq (−6.000 €) · Transferencia a Marta Soriano (−5.256 €) · Regalos Navidad  Familia Javier - Pi (−3.163 €)", "saldo": 183240.3040000004}], "minv": -57478.075999999615, "mind": "25/11", "c_nov": 89632.50400000038, "c_dic": 183240.3040000004, "lg_nov": 157573.07, "lg_dic": 169489.73999999996, "meses": [{"mes": "01", "ing": 158477, "car": 169810, "neto": -11333}, {"mes": "02", "ing": 257970, "car": 96312, "neto": 161659}, {"mes": "03", "ing": 1308623, "car": 1119819, "neto": 188804}, {"mes": "04", "ing": 172950, "car": 417804, "neto": -244854}, {"mes": "05", "ing": 158498, "car": 90177, "neto": 68320}, {"mes": "06", "ing": 506388, "car": 651281, "neto": -144893}, {"mes": "07", "ing": 162541, "car": 269709, "neto": -107168}, {"mes": "08", "ing": 188829, "car": 80898, "neto": 107931}, {"mes": "09", "ing": 371644, "car": 475429, "neto": -103785}, {"mes": "10", "ing": 209136, "car": 243223, "neto": -34086}, {"mes": "11", "ing": 158089, "car": 57390, "neto": 100699}, {"mes": "12", "ing": 170917, "car": 77309, "neto": 93608}], "nov": [{"d": "26/10", "c": "Plan ahorro expansión", "i": 0.0, "g": 195.0}, {"d": "26/10", "c": "Plan ahorro expansión", "i": 0.0, "g": 14.22}, {"d": "26/10", "c": "Compra tarjeta 1019_gastos san telmo", "i": 0.0, "g": 383.29}, {"d": "26/10", "c": "LaLiga Group international, SL", "i": 141188.26, "g": 0.0}, {"d": "26/10", "c": "Transferencia La Liga", "i": 16848.05, "g": 0.0}, {"d": "26/10", "c": "IVA 3T 2026", "i": 0.0, "g": 114694.09}, {"d": "26/10", "c": "Pago Fra. CUN  50/P260049500", "i": 0.0, "g": 1321.35}, {"d": "26/10", "c": "Pago Fra. CUN  50/P260049192", "i": 0.0, "g": 195.0}, {"d": "27/10", "c": "Compra tarjeta 1019_gastos san telmo", "i": 0.0, "g": 215.37}, {"d": "28/10", "c": "Transferenciaa IDEAS DEL SUR_Ampliacion de capital", "i": 0.0, "g": 15000.0}, {"d": "28/10", "c": "Compra tarjeta 1019_gastos san telmo", "i": 0.0, "g": 89.21}, {"d": "29/10", "c": "Fundación Juan XXIII atención al minusválido", "i": 0.0, "g": 60.0}, {"d": "29/10", "c": "Transferencia a Javier Tebas Llanas", "i": 0.0, "g": 2500.0}, {"d": "29/10", "c": "Compra tarjeta 1019_gastos san telmo", "i": 0.0, "g": 111.88}, {"d": "29/10", "c": "Gas Naturgy Iberia", "i": 0.0, "g": 274.45}, {"d": "30/10", "c": "Transferencia Javier Tebas Llanas", "i": 0.0, "g": 600.0}, {"d": "30/10", "c": "Seguros sociales cotizacion autonomo", "i": 0.0, "g": 1416.08}, {"d": "30/10", "c": "Seguridad social", "i": 0.0, "g": 408.39}, {"d": "30/10", "c": "Seguridad social", "i": 0.0, "g": 434.64}, {"d": "30/10", "c": "Seguridad social", "i": 0.0, "g": 408.39}, {"d": "30/10", "c": "Aquaservice", "i": 0.0, "g": 77.62}, {"d": "30/10", "c": "nomina Grace", "i": 0.0, "g": 1364.58}, {"d": "30/10", "c": "nomina Benigno Demafiles", "i": 0.0, "g": 1364.58}, {"d": "30/10", "c": "nomina Alfredo Ruspira", "i": 0.0, "g": 1300.0}, {"d": "30/10", "c": "Traspaso a cuenta Caixabank", "i": 0.0, "g": 1500.0}], "top_ing": [{"k": "Transf. Laliga Group International (26/03)", "v": 727028}, {"k": "Devolucion prestamo (30/03)", "v": 320000}, {"k": "LaLiga Group international, SL (26/06)", "v": 311583}, {"k": "Liga Nacional de Fútbol Profesional (24/04)", "v": 141327}, {"k": "Transf. Laliga Nacional de Futbol Profesiona (25/02)", "v": 141188}, {"k": "La liga futbol (26/05)", "v": 141188}, {"k": "LaLiga Group international, SL (26/06)", "v": 141188}, {"k": "LaLiga Group international, SL (26/03)", "v": 141188}, {"k": "Transferencia Liga de Futbol (24/07)", "v": 141188}, {"k": "Transf. Liga de Futbol profesional (26/08)", "v": 141188}], "top_car": [{"k": "Transf. A Ideas del Sur Prestamo (30/03)", "v": 350000}, {"k": "Mod. 303  1t (20/04)", "v": 311920}, {"k": "Transf. A Ideas del Sur Prestamo (30/03)", "v": 300000}, {"k": "trasferencia a Ideas Del Sur _ampliacion de  (29/06)", "v": 300000}, {"k": "Transferencia a Ideas del Sur- PRSTAMO (02/03)", "v": 250000}, {"k": "Transf. A Ideas del Sur _ampliacion de capit (25/09)", "v": 245000}, {"k": "trasferencia a Ideas Del Sur _ampliacion de  (30/06)", "v": 200000}, {"k": "MOD 303 IVA 2T (28/07)", "v": 150000}, {"k": "IVA 3T 2026 (26/10)", "v": 114694}, {"k": "Transf. A MONART SA - Dev. Prestamo (31/03)", "v": 100000}], "fijos": [{"d": "1", "c": "Mutualidad Abogacía C.General", "v": 724.67}, {"d": "1", "c": "Alquiler Meday", "v": 3500.0}, {"d": "1", "c": "Asignación mes Diego", "v": 1200.0}, {"d": "2", "c": "Recibo Tebas Estudio", "v": 276.46}, {"d": "2", "c": "Transferencia pago Roberto Bourdet", "v": 533.0}, {"d": "2", "c": "Transferencia Gustavo Scandolo", "v": 200.0}, {"d": "2", "c": "Telefónica España (San telmo)", "v": 115.6}, {"d": "3", "c": "Transf. a Javier Jr. Seguro Adeslas", "v": 400.0}, {"d": "5", "c": "Guardería", "v": 700.0}, {"d": "5", "c": "Guardería", "v": 700.0}, {"d": "5", "c": "Alquiler Malpartida", "v": 2000.0}, {"d": "5", "c": "obras según contrato", "v": 700.0}, {"d": "6", "c": "Aportación/préstamo Tebas Alfaro Inter.", "v": 5835.0}, {"d": "15", "c": "Colegio Velazquez", "v": 720.0}, {"d": "15", "c": "Alizanza Sport", "v": 1936.0}, {"d": "16", "c": "Helvetia Previsión, S.A.", "v": 211.07}, {"d": "28", "c": "Transferencia Alquiler Benasque Meday Haus", "v": 1700.0}, {"d": "30", "c": "Préstamo Banco Sabadell", "v": 546.76}, {"d": "30", "c": "Fernando Bazaco", "v": 0.0}, {"d": "30", "c": "Nómina Yolanda Triana", "v": 1166.67}, {"d": "30", "c": "Grace Tingson Alagos", "v": 1213.33}, {"d": "30", "c": "Benigno Demafiles", "v": 1213.33}, {"d": "30", "c": "Seguridad social autonomos", "v": 316.99}, {"d": "30", "c": "Seguridad social", "v": 331.55}, {"d": "30", "c": "Seguridad social", "v": 236.01}, {"d": "30", "c": "Seguros sociales", "v": 331.55}, {"d": "30", "c": "Seguros sociales", "v": 163.77}, {"d": "30", "c": "Seguridad social", "v": 91.55}], "tot_fijos": 27063.309999999998, "ids_out": 1873980, "ids_in": 400000, "laliga": 2738559, "last_c": "Traspaso a cuenta Caixabank"};
 const eur=v=>new Intl.NumberFormat('es-ES',{style:'currency',currency:'EUR',maximumFractionDigits:0}).format(v);
 const eur2=v=>new Intl.NumberFormat('es-ES',{style:'currency',currency:'EUR',minimumFractionDigits:2}).format(v);
-const col=v=>v>=0?'var(--green)':'var(--red)';
 const lab=v=>v>=0?'+ '+eur(v):eur(v);
+const col=v=>v>=0?'var(--green)':'var(--red)';
 const neto=D.tot_ing-D.tot_car;
+const R=D.rows;
+const lg=164*0; // placeholder sin uso
 
 document.getElementById('kpis').innerHTML=[
-  {lbl:'Total cobros 2026',val:eur(D.tot_ing),delta:'LaLiga octubre (+157.573 €) previsto 28/10',dcol:'var(--green)'},
-  {lbl:'Total pagos 2026',val:eur(D.tot_car),delta:'Incl. ~900k transf. a Ideas del Sur',dcol:'var(--red)'},
-  {lbl:'Resultado neto',val:lab(neto),delta:'Op. real sin JT→Ideas del Sur: +766.749 €',dcol:col(neto),color:col(neto)},
-  {lbl:'Saldo Sabadell 23/10',val:eur2(D.saldo),delta:'⚠️ Pendiente LaLiga oct (+157.573 €, 28/10)',dcol:'#e67e22',color:'var(--red)'},
-  {lbl:'Cierre octubre (prev.)',val:eur(-8544),delta:'Tras LaLiga oct y gastos fijos',dcol:'#e67e22',color:'#e67e22'},
-  {lbl:'Cierre noviembre (prev.)',val:eur(101456),delta:'✅ LaLiga nov ~25/11 cubre todos los gastos',dcol:'var(--green)',color:'var(--green)'}
-].map(k=>`<div class="kpi"><div class="lbl">${k.lbl}</div><div class="val" style="${k.color?'color:'+k.color:''}">${k.val}</div><div class="delta" style="color:${k.dcol}">${k.delta}</div></div>`).join('');
+ {l:'Total cobros 2026',v:eur(D.tot_ing),d:'Hasta 30/10/2026',c:'var(--green)'},
+ {l:'Total pagos 2026',v:eur(D.tot_car),d:'Incl. transferencias a Ideas del Sur',c:'var(--red)'},
+ {l:'Resultado neto',v:lab(neto),d:'Cobros − pagos del ejercicio',c:'var(--red)',vc:col(neto)},
+ {l:'Saldo Sabadell 30/10',v:eur2(D.saldo),d:'Tras LaLiga oct, IVA 3T y aportación a Ideas del Sur',c:'#e67e22',vc:col(D.saldo)},
+ {l:'Mínimo previsto ('+D.mind+')',v:eur(D.minv),d:'Justo antes del cobro de LaLiga noviembre',c:'#e67e22',vc:'#e67e22'},
+ {l:'Cierre noviembre (prev.)',v:eur(D.c_nov),d:'✅ Cierre diciembre: '+eur(D.c_dic),c:'var(--green)',vc:'var(--green)'}
+].map(k=>`<div class="kpi"><div class="lbl">${k.l}</div><div class="val" style="color:${k.vc||'var(--ink)'}">${k.v}</div><div class="delta" style="color:${k.c}">${k.d}</div></div>`).join('');
+
+document.getElementById('alertas').innerHTML=`
+<div class="alert-amber">⚠️ <b>Saldo actual ${eur2(D.saldo)}</b> — la cuenta está en negativo pese a haber cobrado LaLiga octubre el 26/10 (+158.036 €), porque ese mismo día se pagó el <b>IVA 3T (−114.694 €)</b> y el 28/10 se aportaron <b>15.000 € a Ideas del Sur</b> (ampliación de capital).</div>
+<div class="alert-amber">⚠️ <b>Hasta el 25/11 la cuenta seguirá en negativo:</b> el saldo bajará hasta <b>${eur(D.minv)}</b> (${D.mind}) por los gastos fijos y pagos de noviembre (entre ellos Farmacia Reina Madre −11.801 € el 03/11 y tarjeta de crédito −5.300 € el 05/11). El Excel no indica límite de póliza para esta cuenta.</div>
+<div class="alert-green">✅ <b>25/11 — LaLiga noviembre: +${eur(D.lg_nov)}</b> devuelve la cuenta a positivo. Cierre noviembre <b>${eur(D.c_nov)}</b> y cierre diciembre <b>${eur(D.c_dic)}</b> (LaLiga diciembre +${eur(D.lg_dic)} el 23/12).</div>
+<div class="note">Hoy 30/10 se han cargado seguros sociales de autónomos y seguridad social (≈ −2.668 €), nóminas Grace, Benigno y Alfredo Ruspira (−4.029 €) y traspaso a CaixaBank (−1.500 €).</div>`;
+
+const lgOct=158036.31;
+document.getElementById('tPos').innerHTML=`<thead><tr><th>Cuenta</th><th class="num">Saldo actual</th><th class="num">Mínimo previsto</th><th class="num">Próximo cobro LaLiga</th><th class="num">Saldo tras cobro</th><th>Estado</th></tr></thead><tbody>
+<tr class="hl-amber"><td><b>Banco Sabadell</b><br><span style="font-size:11px;color:var(--mut)">Última op 30/10 · ${D.last_c}</span></td><td class="num neg" style="font-size:15px;font-weight:700">${eur2(D.saldo)}</td><td class="num neg">${eur(D.minv)}<br><span style="font-size:10px;color:var(--mut)">${D.mind}</span></td><td class="num pos">+${eur(D.lg_nov)}<br><span style="font-size:10px;color:var(--mut)">25/11</span></td><td class="num pos" style="font-weight:700">${eur(R[2].saldo)}</td><td><span class="tag tag-amber">⚠️ Negativo hasta el 25/11</span></td></tr></tbody>`;
+document.getElementById('boxes').innerHTML=[
+ ['Gastos fijos mensuales',eur(D.tot_fijos)+'/mes','neg'],['LaLiga octubre cobrado (26/10)','+'+eur(lgOct),'pos'],
+ ['IVA 3T pagado (26/10)','−114.694 €','neg'],['Aportación a Ideas del Sur (28/10)','−15.000 €','neg']
+].map(b=>`<div class="box"><span class="t">${b[0]}</span><span class="v ${b[2]}">${b[1]}</span></div>`).join('');
+
+const sty=v=>v<0?'neg':'pos';
+const stt=v=>v<0?'<span class="tag tag-amber">⚠️ Negativo</span>':'<span class="tag tag-in">✅ Positivo</span>';
+const row=r=>`<tr class="${r.saldo<0?'hl-amber':'hl-green'}"><td>${r.f}</td><td>${r.desc||'Gastos menores'}</td><td class="num pos">${r.ing>0?'+'+eur(r.ing):''}</td><td class="num neg">${r.car>0?'−'+eur(r.car):''}</td><td class="num ${sty(r.saldo)}" style="font-weight:700">${eur(r.saldo)}</td><td>${stt(r.saldo)}</td></tr>`;
+const mesH=t=>`<tr class="mes"><td colspan="6">${t}</td></tr>`;
+const cl=(t,v)=>`<tr class="cierre"><td colspan="4">📅 ${t}</td><td class="num ${sty(v)}">${eur(v)}</td><td>${stt(v)}</td></tr>`;
+document.getElementById('tProj').innerHTML=`<thead><tr><th>Fecha</th><th>Conceptos clave</th><th class="num">Ingreso</th><th class="num">Cargo</th><th class="num">Saldo</th><th>Estado</th></tr></thead><tbody>
+<tr><td colspan="4"><b>Saldo real 30/10 (cierre octubre)</b></td><td class="num neg" style="font-weight:700">${eur(D.saldo)}</td><td>${stt(D.saldo)}</td></tr>
+${mesH('NOVIEMBRE 2026')}${row(R[0])}${row(R[1])}${row(R[2])}${row(R[3])}${cl('Cierre noviembre',D.c_nov)}
+${mesH('DICIEMBRE 2026')}${row(R[4])}${row(R[5])}${row(R[6])}${row(R[7])}${cl('Cierre diciembre',D.c_dic)}</tbody>`;
+
+new Chart(document.getElementById('chSaldo'),{type:'line',data:{labels:['30/10\nHoy','05/11','24/11\nMínimo','25/11\nLaLiga','Cierre\nNov','05/12','22/12','23/12\nLaLiga','Cierre\nDic'],datasets:[{label:'Saldo',data:[D.saldo,R[0].saldo,R[1].saldo,R[2].saldo,R[3].saldo,R[4].saldo,R[5].saldo,R[6].saldo,R[7].saldo],borderColor:'#2f4858',backgroundColor:'rgba(47,72,88,0.07)',fill:true,tension:0.25,pointRadius:6,borderWidth:2.5,pointBackgroundColor:[D.saldo,R[0].saldo,R[1].saldo,R[2].saldo,R[3].saldo,R[4].saldo,R[5].saldo,R[6].saldo,R[7].saldo].map(v=>v<0?'#e67e22':'#4f7942')}]},options:{responsive:true,plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>'Saldo: '+eur(c.raw)}}},scales:{y:{ticks:{callback:v=>eur(v)},grid:{color:'rgba(0,0,0,0.05)'}},x:{grid:{display:false},ticks:{font:{size:9},maxRotation:0}}}}});
 
 let chT=null;
-function buildChTime(m){if(chT)chT.destroy();const ml=D.meses.map(x=>x.mes);let cfg;
-if(m==='bars'){cfg={type:'bar',data:{labels:ml,datasets:[{label:'Cobros',data:D.meses.map(x=>x.ing),backgroundColor:'rgba(79,121,66,0.75)'},{label:'Pagos',data:D.meses.map(x=>x.car),backgroundColor:'rgba(168,65,47,0.7)'}]},options:{responsive:true,plugins:{legend:{position:'bottom'}},scales:{x:{grid:{display:false}},y:{ticks:{callback:v=>eur(v)}}}}};}
-else if(m==='neto'){cfg={type:'bar',data:{labels:ml,datasets:[{label:'Neto',data:D.meses.map(x=>x.neto),backgroundColor:D.meses.map(x=>x.neto>=0?'rgba(79,121,66,0.75)':'rgba(168,65,47,0.7)')}]},options:{responsive:true,plugins:{legend:{display:false}},scales:{x:{grid:{display:false}},y:{ticks:{callback:v=>eur(v)}}}}};}
-else{let a=0;const ac=D.meses.map(x=>{a+=x.neto;return a;});cfg={type:'line',data:{labels:ml,datasets:[{label:'Acumulado',data:ac,borderColor:'#2f4858',backgroundColor:'rgba(47,72,88,0.08)',fill:true,tension:0.3}]},options:{responsive:true,plugins:{legend:{display:false}},scales:{x:{grid:{display:false}},y:{ticks:{callback:v=>eur(v)}}}}};}
+function build(m){if(chT)chT.destroy();const ml=D.meses.map(x=>x.mes);let cfg;const sc={x:{grid:{display:false}},y:{ticks:{callback:v=>eur(v)}}};
+if(m==='bars')cfg={type:'bar',data:{labels:ml,datasets:[{label:'Cobros',data:D.meses.map(x=>x.ing),backgroundColor:'rgba(79,121,66,0.75)'},{label:'Pagos',data:D.meses.map(x=>x.car),backgroundColor:'rgba(168,65,47,0.7)'}]},options:{responsive:true,plugins:{legend:{position:'bottom'}},scales:sc}};
+else if(m==='neto')cfg={type:'bar',data:{labels:ml,datasets:[{label:'Neto',data:D.meses.map(x=>x.neto),backgroundColor:D.meses.map(x=>x.neto>=0?'rgba(79,121,66,0.75)':'rgba(168,65,47,0.7)')}]},options:{responsive:true,plugins:{legend:{display:false}},scales:sc}};
+else{let a=0;const ac=D.meses.map(x=>{a+=x.neto;return a;});cfg={type:'line',data:{labels:ml,datasets:[{label:'Acumulado',data:ac,borderColor:'#2f4858',backgroundColor:'rgba(47,72,88,0.08)',fill:true,tension:0.3}]},options:{responsive:true,plugins:{legend:{display:false}},scales:sc}};}
 chT=new Chart(document.getElementById('chTime'),cfg);}
-buildChTime('bars');
-document.querySelectorAll('.ctrls button').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('.ctrls button').forEach(x=>x.classList.remove('on'));b.classList.add('on');buildChTime(b.dataset.m);}));
+build('bars');
+document.querySelectorAll('.ctrls button').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('.ctrls button').forEach(x=>x.classList.remove('on'));b.classList.add('on');build(b.dataset.m);}));
 
-document.getElementById('anaIng').innerHTML=D.analisis_ing;
-document.getElementById('anaGto').innerHTML=D.analisis_gto;
+const bars=(arr,color,id)=>{const mx=Math.max(...arr.map(g=>g.v));document.getElementById(id).innerHTML=arr.map(g=>`<div class="rowbar"><div class="l"><b>${g.k}</b><span>${eur(g.v)}</span></div><div class="bar"><i style="width:${(g.v/mx*100).toFixed(0)}%;background:${color}"></i></div></div>`).join('');};
+bars(D.top_ing,'var(--green)','topIng');bars(D.top_car,'var(--red)','topCar');
+document.getElementById('anaIng').innerHTML=`<b>Cobros acumulados 2026: ${eur(D.tot_ing)}.</b> Fuente principal: <b>LaLiga / Liga de Fútbol Profesional</b> (${eur(D.laliga)} en el ejercicio), con pagos mensuales de ~158.000 € y un extraordinario en marzo. Última entrada: LaLiga octubre (+158.036 €, 26/10). Próxima: <b>LaLiga noviembre (+${eur(D.lg_nov)}, 25/11)</b>.`;
+document.getElementById('anaGto').innerHTML=`<b>Pagos acumulados 2026: ${eur(D.tot_car)}.</b> Las partidas mayores son las transferencias a Ideas del Sur (préstamos y ampliaciones de capital) y los modelos 303 de IVA (1T, 2T y 3T). Gastos fijos mensuales: <b>${eur(D.tot_fijos)}</b>.`;
 
-const mx_i=Math.max(...D.top_ing.map(g=>g.v));
-document.getElementById('topIng').innerHTML=D.top_ing.map(g=>`<div class="rowbar"><div class="l"><b>${g.k}</b><span>${eur(g.v)}</span></div><div class="bar"><i style="width:${(g.v/mx_i*100).toFixed(0)}%;background:var(--green)"></i></div></div>`).join('');
-const mx_c=Math.max(...D.top_car.map(g=>g.v));
-document.getElementById('topCar').innerHTML=D.top_car.map(g=>`<div class="rowbar"><div class="l"><b>${g.k}</b><span>${eur(g.v)}</span></div><div class="bar"><i style="width:${(g.v/mx_c*100).toFixed(0)}%;background:var(--red)"></i></div></div>`).join('');
+document.getElementById('tFijos').innerHTML=`<thead><tr><th>Día</th><th>Concepto</th><th class="num">Importe mensual</th></tr></thead><tbody>${D.fijos.map(f=>`<tr><td>${f.d}</td><td>${f.c}</td><td class="num neg">${eur2(f.v)}</td></tr>`).join('')}<tr style="font-weight:700;background:#f3ead4"><td colspan="2">TOTAL GASTOS FIJOS MENSUALES</td><td class="num neg">${eur2(D.tot_fijos)}</td></tr></tbody>`;
 
-const sit=[
-  `Cobros 2026: <b>${eur(D.tot_ing)}</b> vs pagos <b>${eur(D.tot_car)}</b> → resultado neto <b style="color:var(--red)">${lab(neto)}</b>. El resultado negativo refleja las transferencias a Ideas del Sur (~900.000 €). Flujo real (sin Ideas del Sur): <b style="color:var(--green)">+766.749 €</b>.`,
-  `Saldo 23/10: <b style="color:var(--red)">−24.912 €</b>. Situación temporal previa al cobro de LaLiga octubre. El <b>28/10 entra +157.573 € de LaLiga</b>, que deja el saldo en ~+132.661 € y cubre todos los gastos del mes.`,
-  `<b>Octubre cierra en ~−8.544 €</b> tras gastos fijos + IVA 3T (114.694 €, pagado 20/10). Noviembre y diciembre cierran en positivo gracias a LaLiga: <b style="color:var(--green)">noviembre +101.456 €</b> y <b style="color:var(--green)">diciembre +195.064 €</b>.`,
-  `<b>Gastos fijos mensuales: 27.063 €</b> (mutualidades, alquileres Meday/Malpartida, colegios, guarderías, nóminas Yolanda/Grace/Benigno, préstamo Sabadell, Alianza Sport). Transferencias adicionales variables a Belén Tebas e hijos.`,
-  `<b>Pendiente:</b> LaLiga octubre (+157.573 €, 28/10) · LaLiga noviembre (~141.188 €, prev. 25/11) · LaLiga diciembre (~169.490 €, prev. 23/12).`
-];
-document.getElementById('situacion').innerHTML=sit.map(s=>`<li style="margin-bottom:4px">${s}</li>`).join('');
+const ti=D.nov.reduce((a,x)=>a+x.i,0),tg=D.nov.reduce((a,x)=>a+x.g,0);
+document.getElementById('tNov').innerHTML=`<thead><tr><th>Fecha</th><th>Concepto</th><th class="num">Ingreso</th><th class="num">Cargo</th></tr></thead><tbody>${D.nov.map(x=>`<tr><td>${x.d}</td><td>${x.c}</td><td class="num pos">${x.i>0?eur2(x.i):''}</td><td class="num neg">${x.g>0?eur2(x.g):''}</td></tr>`).join('')}<tr style="font-weight:700;background:#f3ead4"><td colspan="2">TOTAL PERÍODO</td><td class="num pos">${eur2(ti)}</td><td class="num neg">${eur2(tg)}</td></tr></tbody>`;
+
+document.getElementById('situacion').innerHTML=[
+ `Cobros 2026: <b>${eur(D.tot_ing)}</b> vs pagos <b>${eur(D.tot_car)}</b> → resultado neto <b style="color:var(--red)">${lab(neto)}</b>.`,
+ `<b>Saldo 30/10: ${eur2(D.saldo)}.</b> LaLiga octubre (+158.036 €) se absorbió por el pago del IVA 3T (−114.694 €), la aportación a Ideas del Sur (−15.000 €) y los gastos fijos de fin de mes.`,
+ `<b>Hasta el 25/11 la cuenta sigue en negativo</b>, con un mínimo previsto de <b>${eur(D.minv)}</b> (${D.mind}).`,
+ `<b>25/11:</b> LaLiga noviembre (+${eur(D.lg_nov)}) deja el saldo en positivo. <b>Cierre noviembre ${eur(D.c_nov)}</b>; <b>cierre diciembre ${eur(D.c_dic)}</b> tras LaLiga diciembre (+${eur(D.lg_dic)}, 23/12).`,
+ `<b>Gastos fijos mensuales: ${eur(D.tot_fijos)}</b> (alquileres, colegios, guarderías, nóminas, préstamo Sabadell, mutualidades), más transferencias variables a familiares.`
+].map(s=>`<li style="margin-bottom:4px">${s}</li>`).join('');
 </script>
 </body>
 </html>
